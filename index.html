@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="app" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MedAgenda Doctor Application</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://npmcdn.com/angular-toastr/dist/angular-toastr.css" />
+    <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="bower_components/angular-bootstrap-toggle-switch/style/bootstrap3/angular-toggle-switch-bootstrap-3.css">
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="style/main.css">
+    <!-- endinject -->
+</head>
+
+<body>
+
+  <!-- ui-view container div -->
+  <div class="container">
+    <div ui-view></div>
+  </div> <!-- ui-view container div -->
+
+
+
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="bower_components/bootbox/bootbox.js"></script>
+    <script src="bower_components/ngBootbox/dist/ngBootbox.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- endbower -->
+    <!-- inject:js -->
+    <script src="app/app.js"></script>
+    <script src="app/battle/battle.controller.js"></script>
+    <script src="app/battle/leaderboard.controller.js"></script>
+    <script src="app/core/battle.factory.js"></script>
+    <script src="app/core/breed.factory.js"></script>
+    <script src="app/core/category.factory.js"></script>
+    <script src="app/core/owner.factory.js"></script>
+    <script src="app/core/pet.factory.js"></script>
+    <script src="app/home/home.controller.js"></script>
+    <script src="app/home/terms.controller.js"></script>
+    <script src="app/profile/dashboard.controller.js"></script>
+    <script src="app/profile/dog.profile.controller.js"></script>
+    <script src="app/profile/edit.profile.controller.js"></script>
+    <script src="app/profile/owner.profile.controller.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
