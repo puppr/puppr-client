@@ -3,7 +3,7 @@
 
 
     angular
-        .module('app', ['ui.router', 'toastr', 'ngBootbox', 'ui.bootstrap', 'toggle-switch'])
+        .module('app', ['ui.router', 'toastr', 'ngBootbox', 'ui.bootstrap'])
         .config(function($urlRouterProvider, $stateProvider) {
 
             $urlRouterProvider.otherwise('/puppr/home');
