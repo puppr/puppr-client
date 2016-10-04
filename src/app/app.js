@@ -35,7 +35,7 @@
                             templateUrl: 'app/profile/dashboard.html'
                         })
                         .state('puppr.profile.dog', {
-                            url: '/dog?dogId',
+                            url: '/dog?petId',
                             controller: 'DogController as dog',
                             templateUrl: 'app/profile/dog.profile.html'
                         })

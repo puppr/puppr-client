@@ -1,0 +1,9 @@
+body {
+    padding: 30px;
+}
+
+.glyphicon.glyphicon-one-fine-dot:before {
+    content: "\25cf";
+    font-size: 1.5em;
+}
+

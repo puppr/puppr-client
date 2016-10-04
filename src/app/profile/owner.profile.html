@@ -1,0 +1,21 @@
+<br>
+<br>
+<br>
+
+
+
+<label for="dog">Owner Name</label>
+{{owner.owners.firstName}}
+{{owner.owners.lastName}}
+{{owner.owners.biography}}
+
+
+<ul ng-repeat="pets in owner.owners.pets">
+	<li class="btn btn-primary" ui-sref="puppr.profile.dog({petId: pets.petId})">Placeholder for image with link to {{pets.name}}s Profile</li>
+
+	
+</ul>
+
+
+
+

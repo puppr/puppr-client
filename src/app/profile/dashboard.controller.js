@@ -5,24 +5,22 @@
         .module('app')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['petFactory', '$ngBootbox'];
+    DashboardController.$inject = ['petFactory', '$ngBootbox','$stateParams'];
 
-    function DashboardController(petFactory, $ngBootbox) {
+    function DashboardController(petFactory, $ngBootbox,$stateParams) {
         var vm = this;
-
+          vm.pet={};
         activate();
 
-        function activate(id) {
-            petFactory.getPetById(id).then(
-                function(pet) {
-                    vm.pet = pet;
-                    console.log(vm.pet);      
-                },
-                function(error) {}
-            );
+        function activate() {
+             if ($stateParams.petId) {
+                petFactory.getPetById($stateParams.petId)
+                    .then(function(data) {
+                        vm.pet = data;
+                        console.log(vm.pet);
+                    });
+            }
         }
-
-
     }
 
 })();
