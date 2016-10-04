@@ -3,7 +3,7 @@
 
 
     angular
-        .module('app', ['ui.router', 'toastr', 'ngBootbox', 'ui.bootstrap'])
+        .module('app', ['ui.router', 'toastr', 'ngBootbox', 'ui.bootstrap', 'ngAnimate'])
         .config(function($urlRouterProvider, $stateProvider) {
 
             $urlRouterProvider.otherwise('/puppr/home');
@@ -24,23 +24,36 @@
                         controller: 'TermsController as terms',
                         templateUrl: 'app/home/terms.html'
                     })
+                    .state('puppr.new', {
+                        url: '/new',
+                        controller: 'NewController as new',
+                        templateUrl: 'app/home/new.html'
+                    })
+                        .state('puppr.new.dog', {
+                            url: '/dog?petId',
+                            templateUrl: 'app/home/new.dog.html'
+                        })
+                        .state('puppr.new.owner', {
+                            url: '/owner?ownerId',
+                            templateUrl: 'app/home/new.owner.html'
+                        })
                     .state('puppr.profile', {
                         url: '/profile',
                         abstract: true,
                         template: '<div ui-view></div>'
                     })
                         .state('puppr.profile.dashboard', {
-                            url: '/dashboard?petId',
+                            url: '/dashboard?ownerId',
                             controller: 'DashboardController as dashboard',
                             templateUrl: 'app/profile/dashboard.html'
                         })
                         .state('puppr.profile.dog', {
-                            url: '/dog?dogId',
+                            url: '/dog?petId',
                             controller: 'DogController as dog',
                             templateUrl: 'app/profile/dog.profile.html'
                         })
                         .state('puppr.profile.edit', {
-                            url: '/edit?ownerId?petId',
+                            url: '/edit?petId',
                             controller: 'EditController as edit',
                             templateUrl: 'app/profile/edit.profile.html'
                         })

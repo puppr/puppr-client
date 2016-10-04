@@ -5,12 +5,10 @@
         .module('app')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['petFactory', '$ngBootbox'];
+    DashboardController.$inject = ['petFactory', '$ngBootbox', '$stateParams'];
 
-    function DashboardController(petFactory, $ngBootbox) {
+    function DashboardController(petFactory, $ngBootbox, $stateParams) {
         var vm = this;
-
-        activate();
 
         function activate(id) {
             petFactory.getPetById(id).then(
@@ -21,6 +19,10 @@
                 function(error) {}
             );
         }
+
+        vm.currentPetId = $stateParams.petId;
+
+        activate(vm.currentPetId);
 
 
     }

@@ -1,0 +1,79 @@
+<h3>Now, tell us about your pup!</h3>
+<div class="row">
+    <div class="col-sm-6">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" ng-model="formData.name">
+    </div>
+    <div class="col-sm-6">
+        <label for="breed">Breed</label>
+        <select name="breed" class="form-control" ng-init="new.selectedMonth = new.months[0]" ng-model="new.selectedMonth" ng-options="option.month for option in new.months">
+        </select>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-7">
+        <label for="birthday">Birthday</label>
+    </div>
+    <div class="col-sm-5">
+        <label for="gender">Gender</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-3">
+        <select name="birthday" class="form-control" ng-init="new.selectedMonth = new.months[0]" ng-model="new.selectedMonth" ng-options="option.month for option in new.months">
+        </select>
+    </div>
+    <div class="col-sm-2">
+        <select id="day" name="birthday" class="form-control" ng-init="new.selectedDay = new.days[0]" ng-model="new.selectedDay" ng-options="option.day for option in new.days">
+        </select>
+    </div>
+    <div class="col-sm-2">
+        <select id="year" name="birthday" class="form-control" ng-init="new.selectedYear = new.years[0]" ng-model="new.selectedYear" ng-options="option.year for option in new.years">
+        </select>
+    </div>
+    <div class="unordered">
+        <div class="col-sm-2">
+            <div class="list">
+                <input type="radio" id="f-option" name="selector">
+                <label for="f-option">Male</label>
+                <div class="check"></div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="list">
+                <input type="radio" id="s-option" name="selector">
+                <label for="s-option">Female</label>
+                <div class="check">
+                    <div class="inside"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 adjust">
+        <label for="food">Favorite Food</label>
+        <input type="text" class="form-control" name="food" ng-model="formData.name">
+    </div>
+    <div class="col-sm-6 adjust">
+        <label for="food adjust">Favorite Toy</label>
+        <input type="text" class="form-control" name="food" ng-model="formData.name">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <label for="activity">Favorite Activities</label>
+        <textarea name="activity" class="form-control"></textarea>
+    </div>
+</div>
+<br><br>
+<div class="form-group row">
+    <div class="col-xs-6 col-xs-offset-3">
+        <a ui-sref="puppr.new.owner" class="btn btn-block btn-info">
+    Next <span class="	glyphicon glyphicon-chevron-right"></span>
+    </a>
+    </div>
+</div>
+<div class="row">
+</div>
