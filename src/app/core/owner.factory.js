@@ -61,7 +61,7 @@
             //communicating with the api
             $http.post(apiUrl + '/owners/', owner).then(
                 function(response) {
-                    toastr.success('The owner was successfully added to the database.');
+                    // toastr.success('The owner was successfully added to the database.');
                     deferred.resolve(response.data);
                 },
                 function(err) {
