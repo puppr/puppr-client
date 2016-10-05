@@ -1,28 +1,29 @@
 (function() {
-    'use strict';
+        'use strict';
 
-    angular
-        .module('app')
-        .controller('LeaderboardController', LeaderboardController);
+        angular
+            .module('app')
+            .controller('LeaderboardController', LeaderboardController);
 
-    LeaderboardController.$inject = ['battleFactory', '$ngBootbox'];
+        LeaderboardController.$inject = ['petFactory', '$ngBootbox', "$stateParams"];
 
-    function LeaderboardController(battleFactory, $ngBootbox) {
-        var vm = this;
+        function LeaderboardController(petFactory, $ngBootbox, $stateParams) {
+            var vm = this;
+            
+            activate();
 
-        activate();
+            function activate() {
+                return petFactory.getPets()
+                    .then(
+                        function(data) {
+                        
 
-        function activate() {
-            battleFactory.getBattles().then(
-                function(battles) {
-                    vm.battles = battles;
-                    console.log(vm.battles);
-                   
-                },
-                function(error) {}
-            );
-        }
+                            vm.pets = data;
 
+
+                        }
+                    );
+            }
 
     }
 
