@@ -2,11 +2,11 @@
 <div class="row">
     <div class="col-sm-6">
         <label for="name">Name</label>
-        <input type="text" class="form-control" name="name" ng-model="formData.name">
+        <input type="text" class="form-control" name="name" ng-model="newDog.name">
     </div>
     <div class="col-sm-6">
         <label for="breed">Breed</label>
-        <select name="breed" class="form-control" ng-init="new.selectedMonth = new.months[0]" ng-model="new.selectedMonth" ng-options="option.month for option in new.months">
+        <select name="breed" class="form-control" ng-init="newDog.selectedBreed = newDog.breeds[0]" ng-model="newDog.selectedBreed" ng-options="option.name for option in newDog.breeds">
         </select>
     </div>
 </div>
@@ -21,28 +21,28 @@
 </div>
 <div class="row">
     <div class="col-sm-3">
-        <select name="birthday" class="form-control" ng-init="new.selectedMonth = new.months[0]" ng-model="new.selectedMonth" ng-options="option.month for option in new.months">
+        <select name="birthday" class="form-control" ng-init="newDog.selectedMonth = newDog.months[0]" ng-model="newDog.selectedMonth" ng-options="option.month for option in newDog.months">
         </select>
     </div>
     <div class="col-sm-2">
-        <select id="day" name="birthday" class="form-control" ng-init="new.selectedDay = new.days[0]" ng-model="new.selectedDay" ng-options="option.day for option in new.days">
+        <select id="day" name="birthday" class="form-control" ng-init="newDog.selectedDay = newDog.days[0]" ng-model="newDog.selectedDay" ng-options="option.day for option in newDog.days">
         </select>
     </div>
     <div class="col-sm-2">
-        <select id="year" name="birthday" class="form-control" ng-init="new.selectedYear = new.years[0]" ng-model="new.selectedYear" ng-options="option.year for option in new.years">
+        <select id="year" name="birthday" class="form-control" ng-init="newDog.selectedYear = newDog.years[0]" ng-model="newDog.selectedYear" ng-options="option.year for option in newDog.years">
         </select>
     </div>
     <div class="unordered">
         <div class="col-sm-2">
             <div class="list">
-                <input type="radio" id="f-option" name="selector">
+                <input type="radio" id="f-option" name="selector" ng-model="newDog.gender" value="male">
                 <label for="f-option">Male</label>
                 <div class="check"></div>
             </div>
         </div>
         <div class="col-sm-2">
             <div class="list">
-                <input type="radio" id="s-option" name="selector">
+                <input type="radio" id="s-option" name="selector" ng-model="newDog.gender" value="female">
                 <label for="s-option">Female</label>
                 <div class="check">
                     <div class="inside"></div>
@@ -54,23 +54,23 @@
 <div class="row">
     <div class="col-sm-6 adjust">
         <label for="food">Favorite Food</label>
-        <input type="text" class="form-control" name="food" ng-model="formData.name">
+        <input type="text" class="form-control" name="food" ng-model="newDog.food">
     </div>
     <div class="col-sm-6 adjust">
         <label for="food adjust">Favorite Toy</label>
-        <input type="text" class="form-control" name="food" ng-model="formData.name">
+        <input type="text" class="form-control" name="food" ng-model="newDog.toy">
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
         <label for="activity">Favorite Activities</label>
-        <textarea name="activity" class="form-control"></textarea>
+        <textarea ng-model="newDog.activity" name="activity" class="form-control"></textarea>
     </div>
 </div>
 <br><br>
 <div class="form-group row">
     <div class="col-xs-6 col-xs-offset-3">
-        <a ui-sref="puppr.new.owner" class="btn btn-block btn-info">
+        <a ng-click="newDog.addPet()" class="btn btn-block btn-info">
     Next <span class="	glyphicon glyphicon-chevron-right"></span>
     </a>
     </div>

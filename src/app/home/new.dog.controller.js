@@ -3,61 +3,71 @@
 
     angular
         .module('app')
-        .controller('NewController', NewController);
+        .controller('NewDogController', NewDogController);
 
-    NewController.$inject = ['ownerFactory', '$ngBootbox', '$stateParams'];
+    NewDogController.$inject = ['petFactory', 'breedFactory', '$ngBootbox', '$stateParams', '$state'];
 
-    function NewController(ownerFactory, $ngBootbox, $stateParams) {
+    function NewDogController(petFactory, breedFactory, $ngBootbox, $stateParams, $state) {
         var vm = this;
 
         vm.currentOwnerId = $stateParams.ownerId;
 
-        console.log($stateParams);
-
         vm.months = [{
-            "month": "January"
+            "month": "January",
+            "number": "01"
         }, {
-            "month": "February"
+            "month": "February",
+            "number": "02"
         }, {
-            "month": "March"
+            "month": "March",
+            "number": "03"
         }, {
-            "month": "April"
+            "month": "April",
+            "number": "04"
         }, {
-            "month": "May"
+            "month": "May",
+            "number": "05"
         }, {
-            "month": "June"
+            "month": "June",
+            "number": "06"
         }, {
-            "month": "July"
+            "month": "July",
+            "number": "07"
         }, {
-            "month": "August"
+            "month": "August",
+            "number": "08"
         }, {
-            "month": "September"
+            "month": "September",
+            "number": "09"
         }, {
-            "month": "October"
+            "month": "October",
+            "number": "10"
         }, {
-            "month": "November"
+            "month": "November",
+            "number": "11"
         }, {
-            "month": "December"
+            "month": "December",
+            "number": "12"
         } ];
 
         vm.days = [{
-            "day": "1"
+            "day": "01"
         }, {
-            "day": "2"
+            "day": "02"
         }, {
-            "day": "3"
+            "day": "03"
         }, {
-            "day": "4"
+            "day": "04"
         }, {
-            "day": "5"
+            "day": "05"
         }, {
-            "day": "6"
+            "day": "06"
         }, {
-            "day": "7"
+            "day": "07"
         }, {
-            "day": "8"
+            "day": "08"
         }, {
-            "day": "9"
+            "day": "09"
         }, {
             "day": "10"
         }, {
@@ -160,11 +170,11 @@
             "year": "1990"
         }, ];
 
-        function activate(id) {
-            ownerFactory.getOwnerById(id).then(
-                function(owner) {
-                    vm.owner = owner;
-                    console.log(vm.patient);
+        function activate() {
+            breedFactory.getBreeds().then(
+                function(breeds) {
+                    vm.breeds = breeds;
+                    console.log(vm.breeds);
                 },
                 function(error) {
                     console.log("error!");
@@ -172,20 +182,34 @@
             );
         }
 
-        activate(vm.currentOwnerId);
+        activate();
 
 
-        vm.editOwner = function(owner) {
-            ownerFactory.editOwner(owner).then(
-                function(success) {
-                    console.log("success!");
-                },
-                function(error) {
-                    console.log("error!");
-                }
-            );
-
+        vm.addPet = function() {
+                vm.newPet = {
+                    "name": vm.name,
+                    "dateOfBirth": vm.selectedYear.year + '-' + vm.selectedMonth.number + '-' + vm.selectedDay.day,
+                    "dogFood": vm.food,
+                    "gender": vm.gender,
+                    "toy": vm.toy,
+                    "activity": vm.activity,
+                    "ownerId": vm.currentOwnerId,
+                    "breedId": vm.selectedBreed.breedId,
+                };
+                console.log(vm.newPet);
+                vm.saving = true;
+                petFactory.addPet(vm.newPet).then(
+                    function(theNewPet) {
+                        vm.saving = false;
+                        vm.theNewPet = theNewPet;
+                        console.log(vm.theNewPet);
+                        $state.go('puppr.profile.dashboard', { ownerId: vm.currentOwnerId });
+                    },
+                    function() {}
+                );
+            
         };
+
 
 
     }

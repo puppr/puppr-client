@@ -5,21 +5,26 @@
         .module('app')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['petFactory', '$ngBootbox','$stateParams'];
+    DashboardController.$inject = ['ownerFactory', '$ngBootbox','$stateParams'];
 
-    function DashboardController(petFactory, $ngBootbox,$stateParams) {
+    function DashboardController(ownerFactory, $ngBootbox, $stateParams) {
         var vm = this;
-          vm.pet={};
-        activate();
+        vm.currentOwnerId = $stateParams.ownerId;
+        
 
-        function activate() {
-             if ($stateParams.petId) {
-                petFactory.getPetById($stateParams.petId)
-                    .then(function(data) {
-                        vm.pet = data;
-                        console.log(vm.pet);
-                    });
-            }
+        function activate(id) {
+            ownerFactory.getOwnerById(id).then(
+                function(owner) {
+                    vm.owner = owner;
+                    console.log(vm.owner);
+                },
+                function(error) {
+                    console.log("error!");
+                }
+            );
         }
+
+        activate(vm.currentOwnerId);
+
     }
 })();

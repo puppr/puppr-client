@@ -1,0 +1,42 @@
+<br>
+<br>
+<br>
+<uib-tabset active="activeJustified" justified="true">
+    <uib-tab ng-repeat="option in edit.owner.pets" heading="{{option.name}}">
+        <div class="row">
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-6">
+                <label for="">Name</label>
+                <input class="form-control" ng-model="option.name">
+                <br>
+                <br>
+                <label for="">Breed</label>
+                <select name="breed" class="form-control" ng-model="option.breedId" ng-options="breed.breedId as breed.name for breed in edit.breeds">
+                </select>
+                <br>
+                <br>
+                <label>Birthday</label>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <select name="birthday" class="form-control" ng-init="edit.selectedMonth = edit.months[0]" ng-model="option.selectedMonth" ng-options="option.month for option in edit.months">
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <select id="day" name="birthday" class="form-control" ng-init="edit.selectedDay = edit.days[0]" ng-model="option.selectedDay" ng-options="option.day for option in edit.days">
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <select id="year" name="birthday" class="form-control" ng-init="edit.selectedYear = edit.years[0]" ng-model="option.selectedYear" ng-options="option.year for option in edit.years">
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <button class="btn btn-success" ng-click="edit.savePet(option);"><i class="glyphicon glyphicon-save"></i> Save this Pet</button>
+            </div>
+        </div>
+    </uib-tab>
+    <uib-tab heading="{{edit.owner.firstName}}">
+    </uib-tab>
+</uib-tabset>

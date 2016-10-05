@@ -89,7 +89,7 @@ body {
 /* style.css */
 /* ANIMATION STYLINGS
 ============================================================================= */
-#signup-form            { position:relative; min-height:300px; overflow:hidden; padding:30px; }
+#signup-form            { position:relative; min-height:300px; overflow:hidden; padding:30px; color: white;}
 #form-views             { width:auto; }
 
 /* basic styling for entering and leaving */
@@ -138,10 +138,6 @@ body {
 @-webkit-keyframes slideInRight {
     from    { -webkit-transform:translateX(200%); }
     to      { -webkit-transform: translateX(0); }
-}
-
-body {
-	color: white;
 }
 
 #day {
