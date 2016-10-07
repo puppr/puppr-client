@@ -3,9 +3,15 @@
 
 
     angular
-        .module('app', ['ui.router', 'toastr', 'ngBootbox', 'ui.bootstrap', 'ngAnimate', 'angular-filepicker'])
+        .module('app', ['ui.router', 'toastr', 'ngBootbox', 'ui.bootstrap', 'ngAnimate', 'angular-filepicker', 'ngMaterial', 'LocalStorageModule'])
+        .run(function(authFactory) {
+            authFactory.initialize();
+        })
         .config(function(filepickerProvider) {
             filepickerProvider.setKey('A2DG6zAaOSC2z2lZ6rm4bz');
+        })
+        .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+            $httpProvider.interceptors.push('authInterceptorService');
         })
         .config(function($urlRouterProvider, $stateProvider) {
 

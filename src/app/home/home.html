@@ -40,21 +40,21 @@
             <div class="panel-heading text-center">Sign up!</div>
             <div class="panel-body">
                 <div class="">
-                    <label>Email</label>
+                    <label>Username</label>
                     <br>
-                    <input ng-model="home.newEmail" class="form-control" type="text">
+                    <input ng-model="home.newUsername" class="form-control" type="text">
                     <br>
                     <label>Password</label>
                     <br>
-                    <input ng-model="home.newPasswordOne" class="form-control" type="password">
+                    <input ng-model="home.newPassword" class="form-control" type="password">
                     <br>
                     <label>Confirm Password</label>
                     <br>
-                    <input ng-model="home.newPasswordTwo" class="form-control" type="password">
+                    <input ng-model="home.newConfirmPassword" class="form-control" type="password">
                     <br>
                     <br>
                     <div class="col-sm-6 col-sm-offset-3">
-                        <a ng-click="home.addUser()" class="btn btn-block btn-geckoboard">Sign up</a>
+                        <a ng-click="home.register()" class="btn btn-block btn-geckoboard">Sign up</a>
                     </div>
                 </div>
             </div>
@@ -72,22 +72,22 @@
                     
                     <div class="row">
                         <div class="col-sm-12">
-                            <input ng-model="home.newEmail" placeholder="Email" class="form-control" type="text">
+                            <input ng-model="home.newUsername" placeholder="Username" class="form-control" type="text">
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-sm-6">
-                            <input ng-model="home.newPasswordOne" placeholder="Password" class="form-control" type="password">
+                            <input ng-model="home.newPassword" placeholder="Password" class="form-control" type="password">
                         </div>
                         <div class="col-sm-6">
-                            <input ng-model="home.newPasswordTwo" placeholder="Confirm Password" class="form-control" type="password">
+                            <input ng-model="home.newConfirmPassword" placeholder="Confirm Password" class="form-control" type="password">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                 <button type="submit" data-dismiss="modal" class="btn btn-danger modalButton">Cancel</button>
-                    <button type="submit" ng-click="home.addUser()" data-dismiss="modal" class="btn btn-primary">Join Us</button>
+                    <button type="submit" ng-click="home.register()" data-dismiss="modal" class="btn btn-primary">Join Us</button>
                 </div>
             </div>
         </div>
@@ -101,12 +101,12 @@
                     <h4 class="modal-title text-center">Log In</h4>
                 </div>
                 <div class="modal-body">
-                    <input placeholder="Email" class="form-control" type="text" ng-model="home.email">
+                    <input placeholder="Email" class="form-control" type="text" ng-model="home.username">
                     <br>
-                    <input placeholder="Password" class="form-control" type="text" ng-model="home.password">
+                    <input placeholder="Password" class="form-control" type="password" ng-model="home.password">
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" ng-click="home.verifyUser()" data-dismiss="modal" class="btn btn-primary btn-block">Connect</button>
+                    <button type="submit" ng-click="home.login()" data-dismiss="modal" class="btn btn-primary btn-block">Connect</button>
                 </div>
             </div>
         </div>

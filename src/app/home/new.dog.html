@@ -13,26 +13,14 @@
 <br>
 <div class="row">
     <div class="col-sm-7">
-        <label for="birthday">Birthday</label>
+        <label for="birthday">Gender</label>
     </div>
     <div class="col-sm-5">
-        <label for="gender">Gender</label>
+        <label for="gender">Birthday</label>
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-3">
-        <select name="birthday" class="form-control" ng-init="newDog.selectedMonth = newDog.months[0]" ng-model="newDog.selectedMonth" ng-options="option.month for option in newDog.months">
-        </select>
-    </div>
-    <div class="col-sm-2">
-        <select id="day" name="birthday" class="form-control" ng-init="newDog.selectedDay = newDog.days[0]" ng-model="newDog.selectedDay" ng-options="option.day for option in newDog.days">
-        </select>
-    </div>
-    <div class="col-sm-2">
-        <select id="year" name="birthday" class="form-control" ng-init="newDog.selectedYear = newDog.years[0]" ng-model="newDog.selectedYear" ng-options="option.year for option in newDog.years">
-        </select>
-    </div>
-    <div class="unordered">
+<div class="unordered">
         <div class="col-sm-2">
             <div class="list">
                 <input type="radio" id="f-option" name="selector" ng-model="newDog.gender" value="male">
@@ -50,6 +38,10 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-3">
+        <md-datepicker ng-model="newDog.birthday" md-placeholder="Enter date"></md-datepicker>
+    </div>
+    
 </div>
 <div class="row">
     <div class="col-sm-6 adjust">

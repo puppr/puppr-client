@@ -188,7 +188,7 @@
         vm.addPet = function() {
                 vm.newPet = {
                     "name": vm.name,
-                    "dateOfBirth": vm.selectedYear.year + '-' + vm.selectedMonth.number + '-' + vm.selectedDay.day,
+                    "dateOfBirth": vm.birthday,
                     "dogFood": vm.food,
                     "gender": vm.gender,
                     "toy": vm.toy,

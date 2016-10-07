@@ -228,3 +228,10 @@ input[type=radio]:checked ~ label{
   color: #0DFF92;
 }
 
+.md-button.md-icon-button {
+  color: white;
+}
+
+.md-datepicker-input {
+  background-color: white;
+}

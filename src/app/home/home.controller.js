@@ -5,60 +5,59 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['ownerFactory', '$ngBootbox', '$stateParams', '$state'];
+    HomeController.$inject = ['authFactory', '$ngBootbox', '$stateParams', '$state'];
 
-    function HomeController(ownerFactory, $ngBootbox, $stateParams, $state) {
+    function HomeController(authFactory, $ngBootbox, $stateParams, $state) {
         var vm = this;
 
-        function activate() {
-            ownerFactory.getOwners().then(
-                function(owners) {
-                    vm.owners = owners;
-                    console.log(vm.owners);
+        function register() {
+            authFactory.register(vm.registration).then(
+                function(response) {
+                    alert('Registration successful! Please login.');
+                    $state.go('login');
                 },
-                function(error) {}
+                function(response) {
+                    alert('Registration form invalid');
+                }
             );
         }
 
-        activate();
-
-        vm.addUser = function() {
-            if (vm.newPasswordOne != vm.newPasswordTwo) {
+        vm.register = function() {
+            if (vm.newPassword != vm.newConfirmPassword) {
                 alert('your passwords do not match');
             } else {
-                vm.newUser = {
-                    "email": vm.newEmail,
-                    "password": vm.newPasswordOne
+                vm.registration = {
+                    "username": vm.newUsername,
+                    "password": vm.newPassword,
+                    "confirmPassword": vm.newConfirmPassword
                 };
                 vm.saving = true;
-                ownerFactory.addOwner(vm.newUser).then(
-                    function(theNewUser) {
+                authFactory.register(vm.registration).then(
+                    function(newUser) {
                         vm.saving = false;
-                        vm.theNewUser = theNewUser;
-                        console.log(vm.theNewUser);
-                        vm.owners.push(theNewUser);
-                        $state.go('puppr.new.owner', { ownerId: vm.theNewUser.ownerId });
+                        vm.newUser = newUser;
+                        console.log(vm.newUser);
+                        authFactory.login(vm.newUsername, vm.newPassword).then(
+                            function() {
+                                $state.go('puppr.new.owner', { ownerId: vm.newUser});
+                            }
+                        );
                     },
                     function() {}
                 );
             }
         };
 
-        // vm.verifyUser = function() {
-        //     var o = 0;
-        //     for (o = 0; o < vm.owners.length; o++) {
-        //         if (vm.email != vm.password) {
-        //             alert('incorrect password or email');
-        //         } else if (vm.email === vm.password) {
-        //             vm.loggedIn = {
-        //                 "email": vm.email,
-        //                 "password": vm.password
-        //             };
-        //             $state.go('puppr.profile.dashboard', { ownerId: vm.loggedIn.ownerId });
-        //         }
-        //     }
-
-        // };
+        vm.login = function() {
+            authFactory.login(vm.username, vm.password).then(
+                function(response) {
+                    $state.go('puppr.profile.dashboard');
+                },
+                function(error) {
+                    alert(error.error_description);
+                }
+            );
+        };
 
 
     }
