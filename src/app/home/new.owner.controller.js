@@ -30,10 +30,11 @@
 
 
         vm.editOwner = function(owner) {
-            ownerFactory.editOwner(owner).then(
+            ownerFactory.editOwner(vm.currentOwnerId, owner).then(
                 function(success) {
                     console.log("success!");
-                    $state.go('puppr.new.dog', { ownerId: vm.owner.ownerId });
+                    console.log(vm.owner);
+                    $state.go('puppr.new.dog', { ownerId: vm.owner.id });
                 },
                 function(error) {
                     console.log("error!");

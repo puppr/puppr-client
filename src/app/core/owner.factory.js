@@ -37,11 +37,11 @@
 
 
 
-        function editOwner(owner) {
+        function editOwner(ownerId, owner) {
             var deferred = $q.defer();
 
             //communicating with the api
-            $http.put(apiUrl + '/owners/' + owner.ownerId, owner).then(
+            $http.put(apiUrl + '/owners/' + ownerId, owner).then(
                 function(response) {
                     toastr.success("This owner's information has been successfully edited.");
                     deferred.resolve(response.data);
