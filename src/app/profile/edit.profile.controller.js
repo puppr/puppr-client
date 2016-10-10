@@ -41,14 +41,37 @@
 
         activateTwo();
 
+        
+
         function onFileUploaded(file, petId) {
             petPhotoFactory.addPhoto({ 
                 petId: petId, url: file.url 
             }).then(
                 function(photo) {
+                    vm.photo = photo;
+                    var p = 0;
+                    for (p = 0; p < vm.owner.pets.length; p++) {
+                        if (vm.owner.pets[p].petId === petId) {
+                            console.log(vm.owner.pets.length);
+                            vm.owner.pets[p].petPhotos.push(vm.photo);
+                        }
+                    }
                 }
             );
         }
+
+        vm.editPet = function(pet) {
+            petFactory.editPet(pet).then(
+                function(success) {
+                    console.log("success!");
+                    console.log(vm.owner);
+                },
+                function(error) {
+                    console.log("error!");
+                }
+            );
+
+        };
 
     }
 
