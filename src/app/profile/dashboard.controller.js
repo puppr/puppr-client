@@ -5,12 +5,12 @@
         .module('app')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['ownerFactory', '$ngBootbox','$stateParams'];
+    DashboardController.$inject = ['ownerFactory', 'petFactory', '$ngBootbox', '$stateParams'];
 
-    function DashboardController(ownerFactory, $ngBootbox, $stateParams) {
+    function DashboardController(ownerFactory, petFactory, $ngBootbox, $stateParams) {
         var vm = this;
         vm.currentOwnerId = $stateParams.ownerId;
-        
+
 
         function activate(id) {
             ownerFactory.getOwnerById(id).then(

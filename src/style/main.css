@@ -1,4 +1,5 @@
 header {
+    position: fixed;
     width: 100%;
     font-family: 'Ubuntu Condensed', sans-serif;
     color: white;
@@ -12,6 +13,7 @@ header {
     background-repeat: no-repeat;
     background-color: #A0BC94;
     height: 130px;
+
 }
 
 body {
@@ -23,6 +25,10 @@ body {
     background-color: #809676;
     border-bottom: 1px solid grey;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
+}
+
+.container {
+    margin-top: 150px;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -143,6 +149,7 @@ body {
 ============================================================================= */
 
 #signup-form {
+    margin-top: 150px;
     position: relative;
     min-height: 300px;
     overflow: hidden;
