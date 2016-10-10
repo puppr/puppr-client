@@ -1,3 +1,12 @@
+html { 
+ background: url(http://65.media.tumblr.com/83c06858227fe29aecbb9b90cbcc490e/tumblr_nwigprOHqv1urhlm9o1_1280.jpg) no-repeat center center fixed; 
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+}
+
+
 header {
     position: fixed;
     width: 100%;
