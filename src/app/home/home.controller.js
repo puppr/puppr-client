@@ -51,7 +51,7 @@
         vm.login = function() {
             authFactory.login(vm.username, vm.password).then(
                 function(response) {
-                    $state.go('puppr.profile.dashboard');
+                    $state.go('puppr.profile.dashboard', { ownerId: vm.newUser});
                 },
                 function(error) {
                     alert(error.error_description);

@@ -1,13 +1,5 @@
-html { 
- background: url(http://65.media.tumblr.com/83c06858227fe29aecbb9b90cbcc490e/tumblr_nwigprOHqv1urhlm9o1_1280.jpg) no-repeat center center fixed; 
- -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
-}
-
-
 header {
+    z-index: 10;
     position: fixed;
     width: 100%;
     font-family: 'Ubuntu Condensed', sans-serif;
@@ -29,7 +21,12 @@ body {
     background-color: #eef995;
 }
 
+.editImage {
+    max-width: 300px;
+}
+
 .navbar {
+    z-index: 10;
     margin-top: 130px;
     background-color: #809676;
     border-bottom: 1px solid grey;
