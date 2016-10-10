@@ -10,6 +10,10 @@
     function HomeController(authFactory, $ngBootbox, $stateParams, $state) {
         var vm = this;
 
+        if(authFactory.isAuth) {
+            $state.go('puppr.profile.dashboard');
+        }
+
         function register() {
             authFactory.register(vm.registration).then(
                 function(response) {
@@ -49,7 +53,7 @@
         };
 
         vm.login = function() {
-            authFactory.login(vm.username, vm.password).then(
+            authFactory.login(vm.username, vm.passwords).then(
                 function(response) {
                     $state.go('puppr.profile.dashboard');
                 },

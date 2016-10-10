@@ -16,7 +16,7 @@
         function activate() {
 
             if ($stateParams.ownerId) {
-                ownerFactory.getOwnerById($stateParams.ownerId)
+                ownerFactory.getCurrentOwner()
                     .then(function(data) {
                         vm.owners = data;
                         console.log(vm.owners);

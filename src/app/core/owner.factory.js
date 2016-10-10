@@ -10,12 +10,30 @@
 
     function ownerFactory($http, $q, toastr, apiUrl) {
         var service = {
+            getCurrentOwner: getCurrentOwner,
             getOwnerById: getOwnerById,
             editOwner: editOwner
         };
 
         return service;
 
+        function getCurrentOwner() {
+            var deferred = $q.defer();
+
+            //communicating with the api
+            $http.get(apiUrl + '/owners/me').then(
+                function(response) {
+                    deferred.resolve(response.data);
+                },
+                function(err) {
+                    toastr.error('Oh no! An error has occurred. Please try again.');
+                    deferred.reject(err);
+                }
+            );
+
+            //returns the array
+            return deferred.promise;
+        }
 
         function getOwnerById(id) {
             var deferred = $q.defer();

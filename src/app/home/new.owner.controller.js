@@ -10,12 +10,8 @@
     function NewOwnerController(ownerFactory, $ngBootbox, $stateParams, $state) {
         var vm = this;
 
-        vm.currentOwnerId = $stateParams.ownerId;
-
-        console.log($stateParams.ownerId);
-
         function activate(id) {
-            ownerFactory.getOwnerById(id).then(
+            ownerFactory.getCurrentOwner().then(
                 function(owner) {
                     vm.owner = owner;
                     console.log(vm.owner);
@@ -26,11 +22,11 @@
             );
         }
 
-        activate(vm.currentOwnerId);
+        activate();
 
 
         vm.editOwner = function(owner) {
-            ownerFactory.editOwner(vm.currentOwnerId, owner).then(
+            ownerFactory.editOwner(vm.owner.id, owner).then(
                 function(success) {
                     console.log("success!");
                     console.log(vm.owner);

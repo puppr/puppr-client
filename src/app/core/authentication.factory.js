@@ -26,8 +26,9 @@
         function initialize() {
             var authData = localStorageService.get('authorizationData');
             if(authData) {
-                service.isAuth = false;
-                service.username = '';
+                service.isAuth = true;
+                service.username = authData.username;
+                service.ownerId = authData.ownerId;
             }
         }
 
@@ -50,6 +51,8 @@
         }
 
         function login(username, password) {
+            logout();
+
             var data = "grant_type=password&username=" + username +
                        "&password=" + password;
 
@@ -59,11 +62,13 @@
                 function(response) {
                     localStorageService.set('authorizationData', {
                         token: response.data.access_token,
-                        username: username
+                        username: username,
+                        ownerId: response.data.ownerId
                     });
 
                     service.isAuth = true;
                     service.username = username;
+                    service.ownerId = response.data.ownerId;
 
                     defer.resolve(response.data);
                 },
@@ -82,6 +87,7 @@
 
             service.isAuth = false;
             service.username = '';
+            service.ownerId = null;
         }
     }
 })();

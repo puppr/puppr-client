@@ -5,12 +5,12 @@
         .module('app')
         .controller('NewDogController', NewDogController);
 
-    NewDogController.$inject = ['petFactory', 'breedFactory', '$ngBootbox', '$stateParams', '$state'];
+    NewDogController.$inject = ['petFactory', 'breedFactory', '$ngBootbox', '$stateParams', '$state', 'authFactory'];
 
-    function NewDogController(petFactory, breedFactory, $ngBootbox, $stateParams, $state) {
+    function NewDogController(petFactory, breedFactory, $ngBootbox, $stateParams, $state, authFactory) {
         var vm = this;
 
-        vm.currentOwnerId = $stateParams.ownerId;
+        vm.currentOwnerId = authFactory.ownerId;
 
         function activate() {
             breedFactory.getBreeds().then(

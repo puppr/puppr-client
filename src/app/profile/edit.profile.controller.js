@@ -5,16 +5,16 @@
         .module('app')
         .controller('EditController', EditController);
 
-    EditController.$inject = ['ownerFactory', 'breedFactory', 'petPhotoFactory', '$ngBootbox', '$stateParams'];
+    EditController.$inject = ['ownerFactory', 'breedFactory', 'petPhotoFactory', '$ngBootbox', '$stateParams', 'authFactory'];
 
-    function EditController(ownerFactory, breedFactory, petPhotoFactory, $ngBootbox, $stateParams) {
+    function EditController(ownerFactory, breedFactory, petPhotoFactory, $ngBootbox, $stateParams, authFactory) {
         var vm = this;
-        vm.currentOwnerId = $stateParams.ownerId;
+        vm.currentOwnerId = authFactory.ownerId;
         vm.onFileUploaded = onFileUploaded;
 
 
         function activate(id) {
-            ownerFactory.getOwnerById(id).then(
+            ownerFactory.getCurrentOwner().then(
                 function(owner) {
                     vm.owner = owner;
                     console.log(vm.owner);

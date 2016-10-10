@@ -39,12 +39,12 @@
                     templateUrl: 'app/home/new.html'
                 })
                 .state('puppr.new.dog', {
-                    url: '/dog?ownerId',
+                    url: '/dog',
                     controller: 'NewDogController as newDog',
                     templateUrl: 'app/home/new.dog.html'
                 })
                 .state('puppr.new.owner', {
-                    url: '/owner?ownerId',
+                    url: '/owner',
                     controller: 'NewOwnerController as newOwner',
                     templateUrl: 'app/home/new.owner.html'
                 })
@@ -54,7 +54,7 @@
                     template: '<div ui-view></div>'
                 })
                 .state('puppr.profile.dashboard', {
-                    url: '/dashboard?ownerId',
+                    url: '/dashboard',
                     controller: 'DashboardController as dashboard',
                     templateUrl: 'app/profile/dashboard.html'
                 })
@@ -64,7 +64,7 @@
                     templateUrl: 'app/profile/dog.profile.html'
                 })
                 .state('puppr.profile.edit', {
-                    url: '/edit?ownerId',
+                    url: '/edit',
                     controller: 'EditController as edit',
                     templateUrl: 'app/profile/edit.profile.html'
                 })

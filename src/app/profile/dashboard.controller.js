@@ -13,7 +13,7 @@
 
 
         function activate(id) {
-            ownerFactory.getOwnerById(id).then(
+            ownerFactory.getCurrentOwner().then(
                 function(owner) {
                     vm.owner = owner;
                     console.log(vm.owner);
