@@ -5,9 +5,9 @@
         .module('app')
         .controller('EditController', EditController);
 
-    EditController.$inject = ['ownerFactory', 'breedFactory', 'petPhotoFactory', '$ngBootbox', '$stateParams', 'authFactory'];
+    EditController.$inject = ['ownerFactory', 'breedFactory', 'petPhotoFactory', 'petFactory', '$ngBootbox', '$stateParams', 'authFactory'];
 
-    function EditController(ownerFactory, breedFactory, petPhotoFactory, $ngBootbox, $stateParams, authFactory) {
+    function EditController(ownerFactory, breedFactory, petPhotoFactory, petFactory, $ngBootbox, $stateParams, authFactory) {
         var vm = this;
         vm.currentOwnerId = authFactory.ownerId;
         vm.onFileUploaded = onFileUploaded;
@@ -64,7 +64,6 @@
             petFactory.editPet(pet).then(
                 function(success) {
                     console.log("success!");
-                    console.log(vm.owner);
                 },
                 function(error) {
                     console.log("error!");

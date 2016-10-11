@@ -40,7 +40,6 @@
                     function(newUser) {
                         vm.saving = false;
                         vm.newUser = newUser;
-                        console.log(vm.newUser);
                         authFactory.login(vm.newUsername, vm.newPassword).then(
                             function() {
                                 $state.go('puppr.new.owner', { ownerId: vm.newUser});
