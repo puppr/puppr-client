@@ -52,7 +52,7 @@
         };
 
         vm.login = function() {
-            authFactory.login(vm.username, vm.passwords).then(
+            authFactory.login(vm.username, vm.password).then(
                 function(response) {
                     $state.go('puppr.profile.dashboard', { ownerId: vm.newUser});
                 },
