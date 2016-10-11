@@ -81,7 +81,12 @@
                 .state('puppr.battle.clash', {
                     url: '/clash',
                     controller: 'ClashController as clash',
-                    templateUrl: 'app/battle/battle.html'
+                    templateUrl: 'app/battle/clash.html'
+                })
+                .state('puppr.battle.vote', {
+                    url: '/vote',
+                    controller: 'VoteController as vote',
+                    templateUrl: 'app/battle/vote.html'
                 })
                 .state('puppr.battle.leaderboard', {
                     url: '/leaderboard',

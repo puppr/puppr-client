@@ -3,17 +3,17 @@
 
     angular
         .module('app')
-        .controller('ClashController', ClashController);
+        .controller('VoteController', VoteController);
 
-    ClashController.$inject = ['battleFactory', '$ngBootbox'];
+    VoteController.$inject = ['battleFactory', '$ngBootbox','petFactory'];
 
-    function ClashController(battleFactory, $ngBootbox) {
+    function VoteController(battleFactory, $ngBootbox,petFactory) {
         var vm = this;
 
         activate();
 
         function activate() {
-            battleFactory.getBattles().then(
+            voteFactory.getBattles().then(
                 function(battles) {
                     vm.battles = battles;
                     console.log(vm.battles);
