@@ -3,27 +3,39 @@
 
 
     angular
-        .module('app', ['ui.router', 'toastr', 'ngBootbox', 'ui.bootstrap', 'ngAnimate', 'angular-filepicker', 'ngMaterial', 'LocalStorageModule'])
+        .module('app', ['ui.router', 'toastr', 'ngBootbox', 'ui.bootstrap', 'ngAnimate', 'angular-filepicker', 'ngMaterial', 'ngMessages', 'LocalStorageModule'])
         .run(function(authFactory) {
             authFactory.initialize();
         })
         .config(function(filepickerProvider) {
             filepickerProvider.setKey('A2DG6zAaOSC2z2lZ6rm4bz');
         })
+        .config(function($mdThemingProvider) {
+    $mdThemingProvider
+      .theme('default')
+      .primaryPalette('blue');
+  })
         .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             $httpProvider.interceptors.push('authInterceptorService');
         })
         .config(function($urlRouterProvider, $stateProvider) {
 
-            $urlRouterProvider.otherwise('/puppr/home');
+            $urlRouterProvider.otherwise('/welcome/home');
 
             $stateProvider
+                .state('welcome', {
+                    url: '/welcome',
+                    abstract: true,
+                    controller: 'HomeNavbarController as homeNavbar',
+                    templateUrl: '/app/layout/welcome.shell.html'
+                })
                 .state('puppr', {
                     url: '/puppr',
                     abstract: true,
+                    controller: 'NavbarController as navbar',
                     templateUrl: '/app/layout/puppr.shell.html'
                 })
-                .state('puppr.home', {
+                .state('welcome.home', {
                     url: '/home',
                     controller: 'HomeController as home',
                     templateUrl: 'app/home/home.html'
