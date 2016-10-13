@@ -36,15 +36,6 @@
                     });
             }
         }
-        //     petFactory.getPetById(id).then(
-        //         function(pet) {
-        //             vm.pet = pet;
-        //             console.log(vm.pet);      
-        //         },
-        //         function(error) {}
-        //     );
-        // }
-
 
     }
 

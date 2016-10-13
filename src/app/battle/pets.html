@@ -1,0 +1,24 @@
+<br>	
+<br>
+<br>
+<br>
+
+<div class="container">
+<label>Choose your champion!</label>
+<ul ng-repeat="pets in pet.owners.pets">
+	<input name="challenger" type="radio"  value="pets.petId"> {{pets.name}}!</input>
+
+
+
+	
+</ul>
+
+<select name="" id="" >
+               <option ng-repeat="categories in pet.categories" value="{{categories.categoryId}}">{{categories.name}} </option>
+</select>
+
+
+
+
+<input type="submit" ui-sref="puppr.battle.clash" ng-click="addBattle()">
+</div>

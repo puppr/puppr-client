@@ -13,7 +13,7 @@
         activate();
 
         function activate() {
-            voteFactory.getBattles().then(
+            battleFactory.getBattles().then(
                 function(battles) {
                     vm.battles = battles;
                     console.log(vm.battles);

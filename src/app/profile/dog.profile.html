@@ -11,7 +11,13 @@
     <li>{{dog.pet.toy}}</li>
     <li>{{dog.pet.activity}}</li>
 </ul>
-<Button for="battle" ui-sref="puppr.battle.clash({petId:owner.pets.petId)">Challenge</button>
+<div>
+                <button type="submit" class="btn btn-primary btn-block" ui-sref="puppr.battle.pets({challengePetId: dog.pet.petId})">Challenge</button>
+            </div> 
+
+
+
+
 <pre>{{dog | json}}</pre>
 <!--ui-sref="puppr.profile.dog({petId: pet.petId})"-->
 </div>

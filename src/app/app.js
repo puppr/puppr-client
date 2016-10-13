@@ -79,9 +79,14 @@
                     template: '<div ui-view></div>'
                 })
                 .state('puppr.battle.clash', {
-                    url: '/clash',
+                    url: '/clash?battleId',
                     controller: 'ClashController as clash',
                     templateUrl: 'app/battle/clash.html'
+                })
+                .state('puppr.battle.pets', {
+                    url: '/pets?challengePetId',
+                    controller: 'PetsController as pet',
+                    templateUrl: 'app/battle/pets.html'
                 })
                 .state('puppr.battle.vote', {
                     url: '/vote',
