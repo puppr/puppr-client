@@ -5,9 +5,9 @@
         .module('app')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['ownerFactory', 'petFactory', '$ngBootbox', '$stateParams', 'authFactory'];
+    DashboardController.$inject = ['ownerFactory', 'petFactory', '$ngBootbox', '$stateParams', 'authFactory', '$state'];
 
-    function DashboardController(ownerFactory, petFactory, $ngBootbox, $stateParams, authFactory) {
+    function DashboardController(ownerFactory, petFactory, $ngBootbox, $stateParams, authFactory, $state) {
         var vm = this;
         vm.currentOwnerId = authFactory.ownerId;
 
@@ -25,11 +25,6 @@
         }
 
         activate(vm.currentOwnerId);
-
-        vm.logout = function() {
-            authFactory.logout();
-            $state.go('puppr.home');
-        };
 
     }
 })();

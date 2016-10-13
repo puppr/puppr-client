@@ -6,35 +6,75 @@ header {
     color: white;
     padding-left: 15px;
     font-weight: bold;
-    padding-top: 20px;
     font-size: 60px;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, .8);
-    background-image: url('http://i.imgur.com/55QQ0oH.png');
-    background-position: right bottom;
-    background-repeat: no-repeat;
-    background-color: #A0BC94;
+    background-color: #46b88d;
+    border-right: 15px solid #46b88d;
+    border-bottom: 8px solid #46b88d;
     height: 130px;
+}
 
+.puppr {
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.headerImage {
+    float: right;
+    display: inline-block;
+}
+
+.desc {
+    margin-left: -10px;
+}
+
+.md-floating-label {
+    font-size: 50px;
+}
+
+md-select {
+    margin: 0px;
+    background-color: white;
+    color: black;
+    height: 34px;
+    border-radius: 4px;
+}
+
+.md-datepicker-input {
+    background-color: white;
+    color: black;
+    height: 34px;
+    border-radius: 4px;
 }
 
 body {
-    background-color: #eef995;
+    background-color: #ffcc5c;
 }
 
 .editImage {
     max-width: 300px;
 }
 
+.checkBox {
+    color: grey;
+}
+
+.modalCheckBox {
+    margin-top: 16px;
+    float: left;
+}
+
 .navbar {
     z-index: 10;
     margin-top: 130px;
-    background-color: #809676;
+    background-color: #318062;
     border-bottom: 1px solid grey;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
 }
 
-.container {
-    margin-top: 180px;
+
+#fixMargin {
+    margin-top: 200px;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -59,19 +99,20 @@ body {
 }
 
 .panel-default > .panel-heading {
-  background-color: #A0BC94;
-  font-size: 25px;
-  color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .8);
+    font-family: 'Ubuntu Condensed', sans-serif;
+    background-color: #b20533;
+    font-size: 30px;
+    color: white;
 }
 
 
 /* Buttons */
 
 .btn-geckoboard {
-    background: #7EB348;
-    background-image: none;
-    border: none;
-    color: #fff;
+    margin-top: 10px;
+    color: white;
     font-weight: 600;
     text-decoration: none ! important;
     text-shadow: none;
@@ -79,10 +120,34 @@ body {
     -webkit-transition: all 0.3s ease-in-out 0s;
 }
 
-.btn-geckoboard:hover {
-    background: #333;
+.btn-purple {
+    background-color: #640032;
+}
+
+.btn-purple:hover {
+    background: #3c001e;
     color: #fff;
 }
+
+.btn-green {
+    background-color: #66aa33;
+}
+
+.btn-green:hover {
+    background: #006f3c;
+    color: #fff;
+}
+
+.btn-red {
+    background-color: #c92b1b;
+}
+
+.btn-red:hover {
+    background:     #a32020;
+    color: #fff;
+}
+
+
 
 
 /* adjusted form */
@@ -351,3 +416,46 @@ input[type=radio]:checked ~ label {
 .carousel {
     border-radius: 10px;
 }
+
+.md-dialog-content {
+    z-index: 1000;
+}
+
+.md-button.md-default-theme.md-primary, .md-button.md-primary {
+    color: #46b88d;
+    font-weight: bold;
+    background-color: white;
+}
+
+.md-dialog-content-body {
+    text-align: center; 
+    margin-top: 25px;
+}
+
+.md-title {
+    text-align: center;
+}
+
+.modal-body {
+    padding: 10px 40px 0px 30px;
+}
+
+.modal-header {
+    color: white;
+    background-color: #695783;
+    border-bottom: 1px solid grey;
+}
+
+button.close {
+    color: white;
+    opacity: 1  ;
+}
+
+.termsLink {
+    color: #46b88d;
+}
+
+md-checkbox.md-checked.blueCheck .md-icon {
+ background-color: #46b88d;
+}
+

@@ -5,10 +5,12 @@
         .module('app')
         .controller('NewOwnerController', NewOwnerController);
 
-    NewOwnerController.$inject = ['ownerFactory', '$ngBootbox', '$stateParams', '$state'];
+    NewOwnerController.$inject = ['ownerFactory', 'authFactory', '$ngBootbox', '$stateParams', '$state'];
 
-    function NewOwnerController(ownerFactory, $ngBootbox, $stateParams, $state) {
+    function NewOwnerController(ownerFactory, authFactory, $ngBootbox, $stateParams, $state) {
         var vm = this;
+
+        vm.currentOwnerId = authFactory.ownerId;
 
         function activate(id) {
             ownerFactory.getCurrentOwner().then(
@@ -26,11 +28,10 @@
 
 
         vm.editOwner = function(owner) {
-            ownerFactory.editOwner(vm.owner.id, owner).then(
+            ownerFactory.editOwner(vm.currentOwnerId, owner).then(
                 function(success) {
                     console.log("success!");
-                    console.log(vm.owner);
-                    $state.go('puppr.new.dog', { ownerId: vm.owner.id });
+                    $state.go('puppr.new.dog', { ownerId: vm.currentOwnerId });
                 },
                 function(error) {
                     console.log("error!");

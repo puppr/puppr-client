@@ -6,8 +6,9 @@
     </div>
     <div class="col-sm-6">
         <label for="breed">Breed</label>
-        <select name="breed" class="form-control" ng-init="newDog.selectedBreed = newDog.breeds[0]" ng-model="newDog.selectedBreed" ng-options="option.name for option in newDog.breeds">
-        </select>
+        <md-select aria-label="Follow" ng-model="newDog.selectedBreed" md-on-open="newDog.getBreeds()" style="min-width: 200px;">
+            <md-option ng-value="option" ng-repeat="option in newDog.breeds | orderBy: 'name'">{{option.name}}</md-option>
+        </md-select>
     </div>
 </div>
 <br>
@@ -20,7 +21,7 @@
     </div>
 </div>
 <div class="row">
-<div class="unordered">
+    <div class="unordered">
         <div class="col-sm-2">
             <div class="list">
                 <input type="radio" id="f-option" name="selector" ng-model="newDog.gender" value="male">
@@ -41,7 +42,6 @@
     <div class="col-sm-3">
         <md-datepicker ng-model="newDog.birthday" md-placeholder="Enter date"></md-datepicker>
     </div>
-    
 </div>
 <div class="row">
     <div class="col-sm-6 adjust">
@@ -59,11 +59,12 @@
         <textarea ng-model="newDog.activity" name="activity" class="form-control"></textarea>
     </div>
 </div>
-<br><br>
+<br>
+<br>
 <div class="form-group row">
     <div class="col-xs-6 col-xs-offset-3">
         <a ng-click="newDog.addPet()" class="btn btn-block btn-info">
-    Next <span class="	glyphicon glyphicon-chevron-right"></span>
+    Next <span class="  glyphicon glyphicon-chevron-right"></span>
     </a>
     </div>
 </div>
