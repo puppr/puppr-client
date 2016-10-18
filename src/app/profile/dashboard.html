@@ -1,10 +1,23 @@
 <br>
-<br>
-<br>
 <div id="fixMargin" class="container">
-    <div class="col-sm-6">
-        <li class="btn btn-primary" ui-sref="puppr.profile.dog({petId: dashboard.owner.pets[0].petId})">{{dashboard.owner.pets[0].name}}</li>
-        <h1>{{dashboard.owner.pets[0].name}}</h1>
+    <div class="col-sm-4">
+        <div class="dogBone">
+            <img height="309" width="300" class="boneImage" src="http://www.petallianceorlando.org/wp-content/uploads/2014/04/pet_bone-icon.png">
+            <div class="boneText">{{dashboard.owner.pets[0].name}}</div>
+            <br>
+            <div class="dogPhoto">
+                <img class="dogMainPic" src="{{dashboard.owner.pets[0].petPhotos[0].url}}">
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-5 col-sm-offset-1">
+                    <button ui-sref="puppr.profile.edit" class="btn btn-geckoboard btn-purple btn-block">edit</button>
+                </div>
+                <div class="col-sm-5">
+                    <button class="btn btn-geckoboard btn-purple btn-block" ui-sref="puppr.profile.dog({petId: dashboard.owner.pets[0].petId})">my profile</button>
+                </div>
+            </div>
+            <br>
+        </div>
     </div>
 </div>
-<a ui-sref="puppr.profile.edit" class="btn btn-primary">edit</a>
