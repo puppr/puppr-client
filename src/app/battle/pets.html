@@ -3,22 +3,24 @@
 <br>
 <br>
 
-<div class="container">
+<div class="container" id="fixMargin">
 <label>Choose your champion!</label>
 <ul ng-repeat="pets in pet.owners.pets">
-	<input name="challenger" type="radio"  value="pets.petId"> {{pets.name}}!</input>
-
+	<input id="p1" class="Deez" name="challenger" type="radio"  value="{{pets.petId}}" ng-click="challenger()" ng-model="pet.selectedPet"> {{pets.name}}!</input>
 
 
 	
 </ul>
 
-<select name="" id="" >
+
+
+<select ng-model="pet.selectedCategory">
                <option ng-repeat="categories in pet.categories" value="{{categories.categoryId}}">{{categories.name}} </option>
 </select>
 
 
 
-
-<input type="submit" ui-sref="puppr.battle.clash" ng-click="addBattle()">
+<button type="submit" ng-click="pet.addBattle()">click</button>
 </div>
+
+

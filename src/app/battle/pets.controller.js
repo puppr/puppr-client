@@ -5,13 +5,13 @@
         .module('app')
         .controller('PetsController', PetsController);
 
-    PetsController.$inject = ['battleFactory', '$ngBootbox', 'petFactory', '$stateParams', 'authFactory', 'ownerFactory','categoryFactory'];
+    PetsController.$inject = ['$state', 'battleFactory', '$ngBootbox', 'petFactory', '$stateParams', 'authFactory', 'ownerFactory', 'categoryFactory'];
 
-    function PetsController(battleFactory, $ngBootbox, petFactory, $stateParams, authFactory, ownerFactory,categoryFactory) {
+    function PetsController($state, battleFactory, $ngBootbox, petFactory, $stateParams, authFactory, ownerFactory, categoryFactory) {
         var vm = this;
 
         vm.owners = [];
-
+     
         activate();
 
         function activate() {
@@ -25,28 +25,40 @@
 
         activate1();
 
-            function activate1() {
-                return categoryFactory.getCategories()
-                    .then(
-                        function(data) {
-                        
-
-                            vm.categories = data;
-                            console.log(data);
+        function activate1() {
+            return categoryFactory.getCategories()
+                .then(
+                    function(data) {
 
 
-                        }
-                    );
-            }
+                        vm.categories = data;
+                        console.log(data);
 
-        function addBattle(battle) {}
-        battleFactory.addBattle({
-            //pet1Id: $stateParams.challengePetId,
-            //pet2Id: 0  get from selected pet
-        })
-            .then(function(data) {
-                console.log(vm.battles);
-            });
+
+                    }
+                );
+        }
+
+       vm.addBattle = function() {
+           vm.newBattle = {
+               petOneId: $stateParams.challengePetId,
+               petTwoId: vm.selectedPet,
+               categoryId: vm.selectedCategory
+           };
+           console.log(vm.newBattle);
+           vm.saving = true;
+           battleFactory.addBattle(vm.newBattle).then(
+               function(theNewBattle) {
+                   vm.saving = false;
+                   vm.theNewBattle = theNewBattle;
+                   $state.go('puppr.battle.clash', {battleId: vm.theNewBattle.battleId});
+                   console.log(vm.theNewBattle);
+               },
+               function() {}
+           );
+
+       };
+
 
 
     }
