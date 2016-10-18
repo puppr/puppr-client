@@ -459,3 +459,41 @@ md-checkbox.md-checked.blueCheck .md-icon {
  background-color: #46b88d;
 }
 
+.dogBone {
+    border-radius: 10px;
+    background-color: white;
+        box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
+
+}
+
+.boneImage {
+    position: relative;
+    margin-top: -70px;
+    margin-left: 25px;
+    background-size: 250px 200px;
+    transform: rotate(135deg);
+}
+
+.boneText {
+    position: absolute;
+    margin-top: -173px;
+    text-align: center;
+    width: 360px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 30px;
+    color: #2c1549;
+    font-weight: bold;
+}
+
+.dogPhoto {
+    margin-top: -30px;
+    max-width: 360px;
+    text-align: center;
+}
+
+.dogMainPic {
+    margin-top: -30px;
+    max-width: 300px;
+    border-radius: 10px;
+}
+
