@@ -1,79 +1,74 @@
 <br>
-<br>
-<br>
 <div id="fixMargin" class="container">
-    <uib-tabset active="activeJustified" justified="true">
-        <uib-tab ng-repeat="pet in edit.owner.pets" heading="{{pet.name}}">
-            <br>
-            <br>
-            <div class="row">
-                <div class="col-sm-6">
-                    <input filepicker type="filepicker-dragdrop" data-fp-services="computer,facebook,dropbox,box" on-success="edit.onFileUploaded(event.fpfile, pet.petId)" />
-                    <div ng-repeat="photo in pet.petPhotos">
-                        <img class="editImage" ng-src="{{photo.url}}">
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label for="">Name</label>
-                            <input class="form-control" ng-model="pet.name">
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="">Breed</label>
-                            <select name="breed" class="form-control" ng-model="pet.breedId" ng-options="breed.breedId as breed.name for breed in edit.breeds">
-                            </select>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label>Birthday</label>
-                            <md-datepicker ng-model="pet.birthday" md-placeholder="Enter date"></md-datepicker>
-                        </div>
-                        <div class="unordered">
-                            <div class="col-sm-2">
-                                <div class="list">
-                                    <input type="radio" id="f-option" name="selector" ng-model="pet.gender" value="male">
-                                    <label for="f-option">Male</label>
-                                    <div class="check"></div>
+    <div ng-cloak>
+        <md-content>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab ng-repeat="pet in edit.owner.pets" label="{{pet.name}}">
+                    <md-content class="md-padding">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input filepicker type="filepicker" data-fp-services="computer,facebook,dropbox,box" on-success="edit.onFileUploaded(event.fpfile, pet.petId)" />
+                                <div ng-repeat="photo in pet.petPhotos">
+                                    <img class="editImage" ng-src="{{photo.url}}">
                                 </div>
                             </div>
-                            <div class="col-sm-2">
-                                <div class="list">
-                                    <input type="radio" id="s-option" name="selector" ng-model="pet.gender" value="female">
-                                    <label for="s-option">Female</label>
-                                    <div class="check">
-                                        <div class="inside"></div>
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="">Name</label>
+                                        <input class="form-control" ng-model="pet.name">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="">Breed</label>
+                                        <select name="breed" class="form-control" ng-model="pet.breedId" ng-options="breed.breedId as breed.name for breed in edit.breeds">
+                                        </select>
                                     </div>
                                 </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Birthday</label><br>
+                                        <md-datepicker class="form-control" ng-model="pet.birthday" md-placeholder="Enter date"></md-datepicker>
+                                    </div>
+                                    <div class="col-sm-6">
+                                    <label class="genderLabel">Gender</label><br>
+                                        <md-radio-group ng-model="pet.gender">
+                                            <md-radio-button value="Male" class="md-primary radioButtons">Male</md-radio-button>
+                                            <md-radio-button value="Female" class="radioButtons femaleButton">Female</md-radio-button>
+                                        </md-radio-group>
+                                    </div>
+                                </div>
+                                <br><br><br>
+                                <div class="row">
+                                    <div class="col-sm-6 adjust">
+                                        <label for="food">Favorite Food</label>
+                                        <input type="text" class="form-control" name="food" ng-model="pet.dogFood">
+                                    </div>
+                                    <div class="col-sm-6 adjust">
+                                        <label for="toy adjust">Favorite Toy</label>
+                                        <input type="text" class="form-control" name="toy" ng-model="pet.toy">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label for="activity">Favorite Activities</label>
+                                        <textarea ng-model="pet.activity" name="activity" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <button class="btn btn-success" ng-click="edit.editPet(pet);"><i class="glyphicon glyphicon-save"></i> Save this Pet</button>
                             </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-6 adjust">
-                            <label for="food">Favorite Food</label>
-                            <input type="text" class="form-control" name="food" ng-model="pet.dogFood">
-                        </div>
-                        <div class="col-sm-6 adjust">
-                            <label for="toy adjust">Favorite Toy</label>
-                            <input type="text" class="form-control" name="toy" ng-model="pet.toy">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label for="activity">Favorite Activities</label>
-                            <textarea ng-model="pet.activity" name="activity" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <br>
-                    <br>
-                    <button class="btn btn-success" ng-click="edit.editPet(pet);"><i class="glyphicon glyphicon-save"></i> Save this Pet</button>
-                </div>
-            </div>
-        </uib-tab>
-        <uib-tab heading="{{edit.owner.firstName}}">
-        </uib-tab>
-    </uib-tabset>
+                    </md-content>
+                </md-tab>
+                <md-tab label="{{edit.owner.firstName}}">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Tab Two</h1>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </div>
 </div>
+

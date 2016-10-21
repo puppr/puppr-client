@@ -1,69 +1,54 @@
-<h3>Now, tell us about your pup!</h3>
+<p class="signUpHeading">Now, tell us about your pup!</p>
+<br>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-5">
         <label for="name">Name</label>
-        <input type="text" class="form-control" name="name" ng-model="newDog.name">
+        <input maxlength="15" type="text" class="form-control" name="name" ng-model="newDog.name">
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <label for="breed">Breed</label>
         <md-select aria-label="Follow" ng-model="newDog.selectedBreed" md-on-open="newDog.getBreeds()" style="min-width: 200px;">
             <md-option ng-value="option" ng-repeat="option in newDog.breeds | orderBy: 'name'">{{option.name}}</md-option>
         </md-select>
     </div>
-</div>
-<br>
-<div class="row">
-    <div class="col-sm-7">
-        <label for="birthday">Gender</label>
-    </div>
-    <div class="col-sm-5">
-        <label for="gender">Birthday</label>
-    </div>
-</div>
-<div class="row">
-    <div class="unordered">
-        <div class="col-sm-2">
-            <div class="list">
-                <input type="radio" id="f-option" name="selector" ng-model="newDog.gender" value="male">
-                <label for="f-option">Male</label>
-                <div class="check"></div>
-            </div>
-        </div>
-        <div class="col-sm-2">
-            <div class="list">
-                <input type="radio" id="s-option" name="selector" ng-model="newDog.gender" value="female">
-                <label for="s-option">Female</label>
-                <div class="check">
-                    <div class="inside"></div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="col-sm-3">
+        <label class="birthdayLabel" for="birthday">Birthday</label>
         <md-datepicker ng-model="newDog.birthday" md-placeholder="Enter date"></md-datepicker>
     </div>
 </div>
+<br>
 <div class="row">
-    <div class="col-sm-6 adjust">
-        <label for="food">Favorite Food</label>
-        <input type="text" class="form-control" name="food" ng-model="newDog.food">
-    </div>
-    <div class="col-sm-6 adjust">
-        <label for="food adjust">Favorite Toy</label>
-        <input type="text" class="form-control" name="food" ng-model="newDog.toy">
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
-        <label for="activity">Favorite Activities</label>
-        <textarea ng-model="newDog.activity" name="activity" class="form-control"></textarea>
+    <div class="slightMargin">
+        <div class="col-sm-5">
+            <label for="food">Favorite Food</label>
+            <input type="text" class="form-control" name="food" ng-model="newDog.food">
+        </div>
+        <div class="col-sm-4">
+            <label for="food">Favorite Toy</label>
+            <input type="text" class="form-control" name="food" ng-model="newDog.toy">
+        </div>
+        <div class="col-sm-3">
+            <label for="gender" class="genderLabel">Gender</label>
+            <br>
+            <md-radio-group ng-model="newDog.gender">
+                <md-radio-button value="Male" class="md-primary radioButtons maleRadio">Male</md-radio-button>
+                <md-radio-button value="Female" class="radioButtons mainFemale">Female</md-radio-button>
+            </md-radio-group>
+        </div>
     </div>
 </div>
 <br>
-<br>
+<div class="row">
+    <div class="slightMargin">
+        <div class="col-sm-12">
+            <label for="activity">Favorite Activities</label>
+            <textarea ng-model="newDog.activity" name="activity" class="form-control"></textarea>
+        </div>
+    </div>
+</div>
 <div class="form-group row">
     <div class="col-xs-6 col-xs-offset-3">
-        <a ng-click="newDog.addPet()" class="btn btn-block btn-info">
+        <a ng-click="newDog.addPet()" class="btn btn-block btn-geckoboard btn-red btn-margin">
     Next <span class="  glyphicon glyphicon-chevron-right"></span>
     </a>
     </div>
