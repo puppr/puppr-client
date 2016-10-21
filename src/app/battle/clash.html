@@ -3,22 +3,38 @@
     <div class="row">
         <div class="col-md-6 col-lg-6">
         <label for="">Challenger</label>
-            <div class="panel panel-default">
-                <div class="panel-heading"><h1>{{clash.currentBattle.pet.name}}</h1>
+            <div class="panel panel-default" >
+                <div class="panel-heading"><h1>{{clash.currentBattle.challenger.name}}</h1>
                    </div>
                 <div class="panel-body">
-                    Panel content
+                
+                <img ng-click="clash.vote1()" class="dogMainPic" src="{{clash.currentBattle.challenger.photos[0]}}">
+                
+                    
+
+              {{clash.currentBattle.challenger.votes}}
+                
+
                 </div>
+                
             </div>
         </div>
+
+
+
+    
         <div class="col-md-6 col-lg-6">
         <label for="">Defender</label>
             <div class="panel panel-default">
-                <div class="panel-heading"><h1>{{clash.pet.name}}</h1></div>
+                <div class="panel-heading"><h1>{{clash.currentBattle.defender.name}}</h1></div>
                 <div class="panel-body">
-                    Panel content
+                  <img ng-click="clash.vote2()" class="dogMainPic" src="{{clash.currentBattle.defender.photos[0]}}">
+
+                   {{clash.currentBattle.defender.votes}}
                 </div>
             </div>
+
+            
         </div>
     </div>
 </div>

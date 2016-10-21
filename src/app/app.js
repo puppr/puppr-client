@@ -11,16 +11,19 @@
             filepickerProvider.setKey('A2DG6zAaOSC2z2lZ6rm4bz');
         })
         .config(function($mdThemingProvider) {
-    $mdThemingProvider
-      .theme('default')
-      .primaryPalette('blue');
-  })
+            $mdThemingProvider
+                .theme('default')
+                .primaryPalette('blue');
+        })
         .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             $httpProvider.interceptors.push('authInterceptorService');
         })
         .config(function($urlRouterProvider, $stateProvider) {
 
             $urlRouterProvider.otherwise('/welcome/home');
+
+
+           
 
             $stateProvider
                 .state('welcome', {
@@ -40,9 +43,8 @@
                     controller: 'HomeController as home',
                     templateUrl: 'app/home/home.html'
                 })
-                .state('puppr.terms', {
+                .state('welcome.terms', {
                     url: '/terms',
-                    controller: 'TermsController as terms',
                     templateUrl: 'app/home/terms.html'
                 })
                 .state('puppr.new', {
