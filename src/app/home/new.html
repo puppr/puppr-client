@@ -1,14 +1,23 @@
 <br>
-<br>
-<br>
-<div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-        <div id="form-container">
-            <!-- use ng-submit to catch the form submission and use our Angular function -->
-            <form id="signup-form" ng-submit="processForm()">
-                <!-- our nested state views will be injected here -->
-                <div id="form-views" ui-view></div>
-            </form>
+<div id="fixMargin" class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <div id="form-container">
+                <!-- use ng-submit to catch the form submission and use our Angular function -->
+                <form id="signup-form" ng-submit="processForm()">
+                    <!-- our nested state views will be injected here -->
+                    <div id="form-views" ui-view></div>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="photoCont">
+                <img class="newOwnerImg firstOwnerImg" src="http://i.imgur.com/jjR9X8l.png">
+                <br>
+                <img class="newOwnerImg" src="http://i.imgur.com/QkSA6ly.png">
+                <br>
+                <img class="lastOwnerImg" src="http://i.imgur.com/O4WAj6m.png">
+            </div>
         </div>
     </div>
 </div>
