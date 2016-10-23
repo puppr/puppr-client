@@ -3,7 +3,7 @@
 
 
     angular
-        .module('app', ['ui.router', 'toastr', 'ngBootbox', 'ui.bootstrap', 'ngAnimate', 'angular-filepicker', 'ngMaterial', 'ngMessages', 'LocalStorageModule'])
+        .module('app', ['ui.router', 'toastr', 'ngBootbox', 'ui.bootstrap', 'ngAnimate', 'angular-filepicker', 'ngMaterial', 'ngMessages', 'LocalStorageModule', 'angularMoment'])
         .run(function(authFactory) {
             authFactory.initialize();
         })

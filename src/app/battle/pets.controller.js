@@ -11,7 +11,7 @@
         var vm = this;
 
         vm.owners = [];
-     
+        vm.now = moment();
         activate();
 
         function activate() {
@@ -39,25 +39,27 @@
                 );
         }
 
-       vm.addBattle = function() {
-           vm.newBattle = {
-               petOneId: vm.selectedPet,
-               petTwoId: $stateParams.challengePetId,
-               categoryId: vm.selectedCategory
-           };
-           console.log(vm.newBattle);
-           vm.saving = true;
-           battleFactory.addBattle(vm.newBattle).then(
-               function(theNewBattle) {
-                   vm.saving = false;
-                   vm.theNewBattle = theNewBattle;
-                   $state.go('puppr.battle.clash', {battleId: vm.theNewBattle.battleId});
-                   console.log(vm.theNewBattle);
-               },
-               function() {}
-           );
+        vm.addBattle = function() {
+            vm.newBattle = {
+                petOneId: vm.selectedPet,
+                petTwoId: $stateParams.challengePetId,
+                categoryId: vm.selectedCategory,
+                startDate: vm.now,
+                endDate: vm.now.clone().add(1, 'week')
+            };
+            console.log(vm.newBattle);
+            vm.saving = true;
+            battleFactory.addBattle(vm.newBattle).then(
+                function(theNewBattle) {
+                    vm.saving = false;
+                    vm.theNewBattle = theNewBattle;
+                    $state.go('puppr.battle.clash', { battleId: vm.theNewBattle.battleId });
+                    console.log(vm.theNewBattle);
+                },
+                function() {}
+            );
 
-       };
+        };
 
 
 

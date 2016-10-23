@@ -5,13 +5,14 @@
         .module('app')
         .controller('ClashController', ClashController);
 
-    ClashController.$inject = ['battleVoteFactory', 'battleFactory', '$ngBootbox', 'petFactory', '$stateParams', 'authFactory', 'ownerFactory', 'localStorageService'];
+    ClashController.$inject = ['battleVoteFactory', 'battleFactory', '$ngBootbox', 'petFactory', '$stateParams', 'authFactory', 'ownerFactory', 'localStorageService',];
 
     function ClashController(battleVoteFactory, battleFactory, $ngBootbox, petFactory, $stateParams, authFactory, ownerFactory, localStorageService) {
         var vm = this;
         vm.vote = {};
         vm.vote1 = {};
         activate1();
+        
 
         var votedBattles = localStorageService.get('votedBattles') || []; // this should be an array
 
@@ -22,7 +23,6 @@
                     console.log(vm.currentBattle);
                 });
         }
-
 
 
 
@@ -75,6 +75,9 @@
                 alert('You already voted');
             }
         };
+
+
+
 
 
 
