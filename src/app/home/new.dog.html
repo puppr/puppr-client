@@ -13,7 +13,10 @@
     </div>
     <div class="col-sm-3">
         <label class="birthdayLabel" for="birthday">Birthday</label>
-        <md-datepicker ng-model="newDog.birthday" md-placeholder="Enter date"></md-datepicker>
+        <md-datepicker name="date" ng-model="newDog.birthday" md-placeholder="Enter date" required></md-datepicker>
+        <div class="errors" ng-messages="date.$error">
+            <div ng-message="required">Required</div>
+        </div>
     </div>
 </div>
 <br>

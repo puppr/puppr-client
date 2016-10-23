@@ -96,3 +96,82 @@
         </div>
     </div>
 </div>
+<div id="signUpModal" class="modal fade" tabindex="-1" data-focus-on="input:first" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Sign Up</h4>
+            </div>
+            <div class="modal-body">
+                <form name="signUpModal" novalidate>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <md-input-container class="md-block">
+                                <label>Username</label>
+                                <input minlength="6" maxlength="20" type="text" required md-no-asterisk name="newUsername" ng-model="terms.newUsername">
+                                <div ng-messages="signUpModal.newUsername.$error" role="alert">
+                                    <div ng-message="minlength">Your username must be between 6-20 characters in length</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <md-input-container class="md-block">
+                                <label>Password</label>
+                                <input minlength="8" maxlength="20" type="password" md-no-asterisk name="newPassword" ng-model="terms.newPassword" required>
+                                <div ng-messages="signUpModal.newPassword.$error" role="alert">
+                                    <div ng-message="minlength">Your password must contain at least 8 characters</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                        <div class="col-sm-6">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Confirm Password</label>
+                                <input max-length="20" type="password" md-no-asterisk name="newConfirmPassword" ng-model="terms.newConfirmPassword" required compare-to="terms.newPassword">
+                                <div ng-messages="signUpModal.newConfirmPassword.$error">
+                                    <div ng-message="compareTo">Your passwords do not match</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="modal-footer">
+                        <md-checkbox class="checkBox modalCheckBox blueCheck" ng-model="terms.checkBox" aria-label="Checkbox 1">
+                            I agree to the <a class="termsLink" ui-sref="welcome.terms">Terms of Service</a>
+                        </md-checkbox>
+                        <button type="submit" data-dismiss="modal" class="btn btn-geckoboard btn-red">Cancel</button>
+                        <button type="submit" ng-click="terms.register(signUpModal.$valid)" data-dismiss="modal" class="btn btn-geckoboard btn-green">Join Us</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="logInModal" class="modal fade" tabindex="-1" data-focus-on="input:first" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Log In</h4>
+            </div>
+            <div class="modal-body">
+                <form name="login" ng-submit="terms.login()">
+                    <md-input-container class="md-block">
+                        <label>Username</label>
+                        <input minlength="6" maxlength="20" type="text" required md-no-asterisk name="username" ng-model="terms.username">
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Password</label>
+                        <input minlength="8" maxlength="20" type="password" md-no-asterisk name="password" ng-model="terms.password" required>
+                    </md-input-container>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" ng-click="terms.login()" data-dismiss="modal" class="btn btn-block btn-geckoboard btn-green">Connect</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

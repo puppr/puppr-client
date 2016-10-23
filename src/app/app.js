@@ -45,6 +45,7 @@
                 })
                 .state('welcome.terms', {
                     url: '/terms',
+                    controller: 'TermsController as terms',
                     templateUrl: 'app/home/terms.html'
                 })
                 .state('puppr.new', {

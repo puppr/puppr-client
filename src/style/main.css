@@ -569,3 +569,7 @@ element.style {
     overflow: scroll;
     overflow-x: hidden;
 }
+
+ul > li {
+    cursor: pointer;
+}
