@@ -14,6 +14,13 @@ header {
     height: 130px;
 }
 
+.defaultDog {
+    margin-top: -10px;
+    width: 270px;
+    border-radius: 100%;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
+}
+
 #myCarousel {
     box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
 }
@@ -25,6 +32,10 @@ header {
     padding: 15px;
     background-color: black;
     opacity: 0.5;
+}
+
+#fixMargin {
+    margin-top: 200px;
 }
 
 .carousel-control {
@@ -101,10 +112,15 @@ md-select {
 
 body {
     background-color: #ffcc5c;
+    background-size: cover;
 }
 
 .editImage {
     max-width: 300px;
+}
+
+.yes {
+    background-color: #ffcc5c;
 }
 
 .checkBox {
@@ -122,10 +138,6 @@ body {
     background-color: #318062;
     border-bottom: 1px solid grey;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
-}
-
-#fixMargin {
-    margin-top: 200px;
 }
 
 .navbar-inverse .navbar-nav > li > a {

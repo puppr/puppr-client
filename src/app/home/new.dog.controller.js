@@ -61,23 +61,6 @@
 
         };
 
-        vm.addBattle = function() {
-            vm.newBattle = {
-                pet1Id: $stateParams.challengePetId,
-                pet2Id: vm.selectedPet
-            };
-            console.log(vm.newBattle);
-            // vm.saving = true;
-            // battleFactory.addBattle(vm.newBattle).then(
-            //     function(theNewBattle) {
-            //         vm.saving = false;
-            //         vm.theNewBattle = theNewBattle;
-            //         console.log(vm.theNewBattle);                },
-            //     function() {}
-            // );
-
-        };
-
 
 
     }

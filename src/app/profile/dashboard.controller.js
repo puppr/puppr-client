@@ -17,12 +17,15 @@
                 function(owner) {
                     vm.owner = owner;
                     console.log(vm.owner);
+                    console.log(vm.owner.pets[0].petPhotos.length);
                 },
                 function(error) {
                     console.log("error!");
                 }
             );
         }
+
+
 
         activate(vm.currentOwnerId);
 

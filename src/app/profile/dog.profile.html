@@ -1,8 +1,5 @@
 <br>
-<br>
-<br>
 <div class="container" id="fixMargin"></div>
-<h1>HELLOO!</h1>
 <ul>
     <li class="btn btn-primary" ui-sref="puppr.profile.owner({ownerId: dog.pet.ownerId})">{{dog.pet.name}}</li>
     <li>{{dog.pet.dateOfBirth | date:"MMMM d, y"}}</li>
@@ -11,12 +8,6 @@
     <li>{{dog.pet.toy}}</li>
     <li>{{dog.pet.activity}}</li>
 </ul>
-<div>
-                <button type="submit" class="btn btn-primary btn-block" ui-sref="puppr.battle.pets({challengePetId: dog.pet.petId})">Challenge</button>
-            </div> 
-
-
-
-
-
+<div class="col-sm-3">
+    <button type="submit" class="btn btn-primary btn-block" ui-sref="puppr.battle.pets({challengePetId: dog.pet.petId})">Challenge</button>
 </div>
