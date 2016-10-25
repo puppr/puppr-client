@@ -12,9 +12,6 @@
         vm.currentOwnerId = authFactory.ownerId;
         vm.onFileUploaded = onFileUploaded;
 
-  //       $scope.myInterval = 3000;
-  // $scope.noWrapSlides = false;
-  // $scope.active = 0;
 
 
         function activate(id) {
@@ -46,6 +43,62 @@
         activateTwo();
 
 
+        vm.editPet = function(pet) {
+            petFactory.editPet(pet).then(
+                function(success) {
+                    console.log("success!");
+                },
+                function(error) {
+                    console.log("error!");
+                }
+            );
+
+        };
+
+        vm.editOwner = function(owner) {
+            if (vm.owner.firstName === "" || vm.owner.firstName === null || vm.owner.lastName === "" || vm.owner.lastName === null || vm.owner.biography === "" || vm.owner.biography === null) {
+                $mdDialog.show(
+                    $mdDialog.alert()
+                    .clickOutsideToClose(true)
+                    .title('Sorry, an error has occurred')
+                    .textContent("Please make sure all fields have been filled out before continuing")
+                    .ok('Got it!')
+                );
+            } else {
+                ownerFactory.editOwner(vm.currentOwnerId, owner).then(
+                    function(success) {
+                        console.log("success!");
+                    },
+                    function(error) {
+                        console.log("error!");
+                    }
+                );
+            }
+
+        };
+
+        // vm.deletePhoto = function(photo) {
+        //     $ngBootbox.confirm("Are you sure you want to delete this photo?")
+        //         .then(function() {
+        //             var z = 0;
+        //             for (z = 0; z < vm.owner.pets.length; z++) {
+        //                 if (vm.owner.pets[z].petId === photo.petId) {
+        //                     for (vm.owner.pets[z].petPhotos )
+        //                 }
+        //             }
+        //             var index = vm.owner.pets.petPhotos.indexOf(photo);
+        //             petPhotoFactory.deletePhoto(photo).then(
+        //                 function(photo) {
+        //                     vm.students.splice(index, 1);
+        //                 },
+        //                 function(error) {}
+        //             );
+        //             console.log('Confirmed!');
+        //         }, function() {
+        //             console.log('Confirm dismissed!');
+        //         });
+
+        // };
 
         function onFileUploaded(file, petId) {
             var a = 0;
@@ -77,18 +130,6 @@
                 }
             }
         }
-
-        vm.editPet = function(pet) {
-            petFactory.editPet(pet).then(
-                function(success) {
-                    console.log("success!");
-                },
-                function(error) {
-                    console.log("error!");
-                }
-            );
-
-        };
 
 
     }

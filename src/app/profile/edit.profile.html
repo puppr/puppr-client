@@ -5,7 +5,52 @@
             <md-tabs md-dynamic-height md-border-bottom>
                 <md-tab label="{{edit.owner.firstName}}">
                     <md-content class="md-padding">
-                        <h1 class="md-display-2">Tab Two</h1>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="text-center">
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <input filepicker type="filepicker" data-fp-button-text="<i class='glyphicon glyphicon-open'></i> Upload a pic of yourself!" data-fp-button-class="btn btn-geckoboard btn-block btn-red adjustFile" data-fp-services="computer,facebook,dropbox,box" ng-model="edit.owner.photo" on-success="edit.editOwner(edit.owner)" />
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <span ng-if="edit.owner.photo === null">
+                                            <img class="editOwnerPic" src="http://i.imgur.com/CjNC7SL.png">
+                                        </span>
+                                    <span ng-if="edit.owner.photo != null">
+                                    <img class="editOwnerPic" ng-src="{{edit.owner.photo}}">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <div class="nameMargin">
+                                        <br>
+                                        <br>
+                                        <div class="col-sm-6">
+                                            <label for="name">First Name</label>
+                                            <input maxlength="15" type="text" class="form-control" ng-model="edit.owner.firstName">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label for="name">Last Name</label>
+                                            <input maxlength="15" type="text" class="form-control" ng-model="edit.owner.lastName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label for="email">About Me</label>
+                                        <textarea class="form-control editAbout" ng-model="edit.owner.biography"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <button class="btn btn-block btn-geckoboard btn-green" ng-click="edit.editOwner(edit.owner);"><i class="glyphicon glyphicon-save"></i> Save Owner</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </md-content>
                 </md-tab>
                 <md-tab ng-repeat="pet in edit.owner.pets" label="{{pet.name}}">
@@ -14,27 +59,37 @@
                             <div class="col-sm-5">
                                 <div class="text-center">
                                     <div class="col-sm-8 col-sm-offset-2">
-                                         <input filepicker type="filepicker" data-fp-button-text="<i class='glyphicon glyphicon-open'></i> Upload some puppy pics!" data-fp-button-class="btn btn-geckoboard btn-block btn-red adjustFile" data-fp-services="computer,facebook,dropbox,box" on-success="edit.onFileUploaded(event.fpfile, pet.petId)" />
+                                        <input filepicker type="filepicker" data-fp-button-text="<i class='glyphicon glyphicon-open'></i> Upload some puppy pics!" data-fp-button-class="btn btn-geckoboard btn-block btn-red adjustFile" data-fp-services="computer,facebook,dropbox,box" on-success="edit.onFileUploaded(event.fpfile, pet.petId)" />
                                     </div>
-                                    <br><br>
-                                    <span ng-repeat="photo in pet.petPhotos">
-                                    <span class="photoSpan">
-                                        <img class="editImage" ng-src="{{photo.url}}">
+                                    <br>
+                                    <br>
+                                    <span ng-if="pet.petPhotos.length <= 0" class="photoSpan">
+                                        <img class="editImage" src="http://i.imgur.com/wEn6ETF.png">
+                                        <img class="editImage" src="http://i.imgur.com/dSFm25B.png">
+                                        <img class="editImage" src="http://i.imgur.com/sE7IgGY.png">
+                                        <img class="editImage" src="http://i.imgur.com/CAC8yBU.png">
+                                        </span>
+                                    <span ng-if="pet.petPhotos.length > 0" ng-repeat="photo in pet.petPhotos">
+                                        <span class="photoSpan">
+                                        <img class="editImage" ng-src="{{photo.url}}"><!-- <button ng-click="edit.deletePhoto(photo)">delete</button> -->
                                         </span>
                                     </span>
                                 </div>
                             </div>
                             <div class="col-sm-7">
-                            <br><br><br>
+                                <br>
+                                <br>
                                 <div class="row">
-                                    <div class="col-sm-6">
-                                        <label for="">Name</label>
-                                        <input maxlength="15" class="form-control" ng-model="pet.name">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label for="">Breed</label>
-                                        <select name="breed" class="form-control" ng-model="pet.breedId" ng-options="breed.breedId as breed.name for breed in edit.breeds">
-                                        </select>
+                                    <div class="dogMargin">
+                                        <div class="col-sm-6">
+                                            <label for="">Name</label>
+                                            <input maxlength="15" class="form-control" ng-model="pet.name">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label for="">Breed</label>
+                                            <select name="breed" class="form-control" ng-model="pet.breedId" ng-options="breed.breedId as breed.name for breed in edit.breeds">
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <br>
@@ -74,7 +129,7 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-sm-6 col-sm-offset-3">
-                                        <button class="btn btn-block btn-geckoboard btn-green" ng-click="edit.editPet(pet);"><i class="glyphicon glyphicon-save"></i> Save this Pet</button>
+                                        <button class="btn btn-block btn-geckoboard btn-green" ng-click="edit.editPet(pet);"><i class="glyphicon glyphicon-save"></i> Save Pet</button>
                                     </div>
                                 </div>
                             </div>

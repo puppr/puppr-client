@@ -29,5 +29,24 @@
         	
         	return defer.promise;
         }
+
+        function deletePhoto(photo) {
+            var deferred = $q.defer();
+
+            //communicating with the api
+            $http.delete(apiUrl + '/petphotoes/' + photo.photoId).then(
+                function(response) {
+                    toastr.success('The photo was successfully removed from the database');
+                    deferred.resolve(response.data);
+                },
+                function(err) {
+                    toastr.error('Oh no! An error has occurred. Please try again.');
+                    deferred.reject(err);
+                }
+            );
+
+            //returns the array
+            return deferred.promise;
+        }
     }
 })();

@@ -27,6 +27,7 @@
 
 
 
+
         activate(vm.currentOwnerId);
 
     }
