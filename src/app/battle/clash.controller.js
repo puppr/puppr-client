@@ -14,6 +14,7 @@
         vm.endDate = {};
         vm.now = moment();
         activate1();
+        activate2();
 
         var votedBattles = localStorageService.get('votedBattles') || []; // this should be an array
 
@@ -24,6 +25,21 @@
                     console.log(vm.currentBattle);
                 });
         }
+
+ // function activate2(){
+ //        if (moment(vm.currentBattle.endDate).isBefore(moment())) {
+ //                battleVoteFactory.getBattleVoteById($stateParams.battleId)
+ //                .then(function)
+                
+ //            } else{
+ //                return;
+
+ //            }
+
+    
+ //        }
+
+ // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         // vm.activate2 = function() {
         //     if (moment(vm.currentBattle.endDate).isBefore(moment())) {
         //         battleVoteFactory.getBattleVotes($stateParams.battleId, )

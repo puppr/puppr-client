@@ -9,13 +9,14 @@
 
     function SearchController($state,$stateParams,battleFactory, $ngBootbox, petFactory, ownerFactory) {
         var vm = this;
-
+        vm.currentPage= 0;
+        vm.pageSize = 20;
         getPets();
 
         function getPets(){
             petFactory.getPets().then(
                 function(pets) {
-                    
+                    vm.pets= pets;
                     console.log(vm.pets);
                    
                 },
