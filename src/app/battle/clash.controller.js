@@ -5,14 +5,15 @@
         .module('app')
         .controller('ClashController', ClashController);
 
-    ClashController.$inject = ['battleVoteFactory', 'battleFactory', '$ngBootbox', 'petFactory', '$stateParams', 'authFactory', 'ownerFactory', 'localStorageService',];
+    ClashController.$inject = ['battleVoteFactory', 'battleFactory', '$ngBootbox', 'petFactory', '$stateParams', 'authFactory', 'ownerFactory', 'localStorageService', 'moment'];
 
-    function ClashController(battleVoteFactory, battleFactory, $ngBootbox, petFactory, $stateParams, authFactory, ownerFactory, localStorageService) {
+    function ClashController(battleVoteFactory, battleFactory, $ngBootbox, petFactory, $stateParams, authFactory, ownerFactory, localStorageService, moment) {
         var vm = this;
         vm.vote = {};
         vm.vote1 = {};
+        vm.endDate = {};
+        vm.now = moment();
         activate1();
-        
 
         var votedBattles = localStorageService.get('votedBattles') || []; // this should be an array
 
@@ -23,13 +24,25 @@
                     console.log(vm.currentBattle);
                 });
         }
+        // vm.activate2 = function() {
+        //     if (moment(vm.currentBattle.endDate).isBefore(moment())) {
+        //         battleVoteFactory.getBattleVotes($stateParams.battleId, )
+        //         .then(function())
+        //         }else {
+        //             return;
 
+        //         }
+            
+        // };
 
-
-
+        //USE BATTLE ID 31 AS EXAMPLE IT IS ALREADY DISABLED
 
         vm.vote1 = function() {
-            if (votedBattles.indexOf($stateParams.battleId) === -1) {
+
+            if (moment(vm.currentBattle.endDate).isBefore(moment())) {
+                alert('This battle is no longer active!');
+                return;
+            } else if (votedBattles.indexOf($stateParams.battleId) === -1) {
                 vm.currentBattle.challenger.votes++;
 
                 vm.newVote = {
@@ -53,7 +66,10 @@
 
 
         vm.vote2 = function() {
-            if (votedBattles.indexOf($stateParams.battleId) === -1) {
+            if (moment(vm.currentBattle.endDate).isBefore(moment())) {
+                alert('This battle is no longer active!');
+                return;
+            } else if (votedBattles.indexOf($stateParams.battleId) === -1) {
                 vm.currentBattle.defender.votes++;
 
                 vm.newVote = {

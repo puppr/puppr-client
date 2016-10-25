@@ -12,10 +12,28 @@
         var service = {
             getCurrentOwner: getCurrentOwner,
             getOwnerById: getOwnerById,
-            editOwner: editOwner
+            editOwner: editOwner,
+            getAllOwners: getAllOwners
         };
 
         return service;
+
+        function getAllOwners() {
+            var deferred = $q.defer();
+
+            //communicating with the api
+            $http.get(apiUrl + '/owners/').then(
+                function(response) {
+                    deferred.resolve(response.data);
+                },
+                function(err) {
+                    toastr.error('Oh no! An error has occurred. Please try again.');
+                    deferred.reject(err);
+                }
+            );
+            //returns the array
+            return deferred.promise;
+        }
 
         function getCurrentOwner() {
             var deferred = $q.defer();

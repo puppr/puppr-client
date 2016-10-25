@@ -98,6 +98,11 @@
                     controller: 'ClashController as clash',
                     templateUrl: 'app/battle/clash.html'
                 })
+                .state('puppr.battle.search', {
+                    url: '/search',
+                    controller: 'SearchController as search',
+                    templateUrl: 'app/battle/search.html'
+                })
                 .state('puppr.battle.pets', {
                     url: '/pets?challengePetId',
                     controller: 'PetsController as pet',

@@ -5,14 +5,14 @@
         .module('app')
         .controller('PetsController', PetsController);
 
-    PetsController.$inject = ['$state', 'battleFactory', '$ngBootbox', 'petFactory', '$stateParams', 'authFactory', 'ownerFactory', 'categoryFactory'];
+    PetsController.$inject = ['$state', 'battleFactory', '$ngBootbox', 'petFactory', '$stateParams', 'authFactory', 'ownerFactory', 'categoryFactory', 'moment'];
 
-    function PetsController($state, battleFactory, $ngBootbox, petFactory, $stateParams, authFactory, ownerFactory, categoryFactory) {
+    function PetsController($state, battleFactory, $ngBootbox, petFactory, $stateParams, authFactory, ownerFactory, categoryFactory, moment) {
         var vm = this;
-
         vm.owners = [];
-        vm.now = moment();
         activate();
+        activate1();
+        
 
         function activate() {
 
@@ -23,7 +23,7 @@
                 });
         }
 
-        activate1();
+
 
         function activate1() {
             return categoryFactory.getCategories()
@@ -39,13 +39,14 @@
                 );
         }
 
+
         vm.addBattle = function() {
             vm.newBattle = {
                 petOneId: vm.selectedPet,
                 petTwoId: $stateParams.challengePetId,
                 categoryId: vm.selectedCategory,
-                startDate: vm.now,
-                endDate: vm.now.clone().add(1, 'week')
+                startDate: moment(),
+                endDate: moment().clone().add(3, 'days')
             };
             console.log(vm.newBattle);
             vm.saving = true;

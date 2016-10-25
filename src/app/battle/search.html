@@ -1,0 +1,25 @@
+<br>
+<br>
+<br>
+<br>  
+<br>
+<br>
+<h1>HELLOOO</h1>
+
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Pet Wins</th>
+      <th>??</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="pets in clash.pets | limitTo:20">
+      <td ui-sref="puppr.profile.dog({petId: pets.petId})">{{pet.name}}</td>
+      <td>pets.win</td>
+    </tr>
+  </tbody>
+</table>
