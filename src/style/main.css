@@ -116,11 +116,20 @@ body {
 }
 
 .editImage {
-    max-width: 300px;
+    object-fit: cover;
+    margin-top: 10px;
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
 }
 
-.yes {
+.faveAct {
+    margin-bottom: 18px;
+}
+
+.backColor {
     background-color: #ffcc5c;
+    padding-bottom: 20px;
 }
 
 .checkBox {
@@ -221,6 +230,10 @@ body {
 
 .slightMargin {
     margin-top: 5px;
+}
+
+.adjustFile {
+    margin-top: 10px;
 }
 
 
@@ -451,6 +464,33 @@ md-checkbox.md-checked.blueCheck .md-icon {
     background-color: #46b88d;
 }
 
+.dogBowl {
+    text-align: center;
+    border-radius: 10px;
+    background-color:   #5f617a;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
+}
+
+
+.bowlImage {
+    text-align: center;
+    position: relative;
+    margin-top: -30px;
+}
+
+.bowlText {
+    position: absolute;
+    margin-left: 195px;
+    margin-top: -105px;
+    text-align: center;
+    width: 360px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 30px;
+    color: #e5623b;
+    font-weight: bold;
+    text-shadow: 1px 1px #b74e2f;
+}
+
 .dogBone {
     border-radius: 10px;
     background-color: #cdff66;
@@ -510,6 +550,10 @@ md-content {
 .genderLabel {
     margin-left: 5px;
     margin-bottom: 13px;
+}
+
+.secondGender {
+    margin-bottom: 20px;
 }
 
 .femaleButton {
