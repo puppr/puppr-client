@@ -3,20 +3,33 @@
     <div ng-cloak>
         <md-content>
             <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="{{edit.owner.firstName}}">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Tab Two</h1>
+                    </md-content>
+                </md-tab>
                 <md-tab ng-repeat="pet in edit.owner.pets" label="{{pet.name}}">
                     <md-content class="md-padding">
                         <div class="row">
-                            <div class="col-sm-6">
-                                <input filepicker type="filepicker" data-fp-services="computer,facebook,dropbox,box" on-success="edit.onFileUploaded(event.fpfile, pet.petId)" />
-                                <div ng-repeat="photo in pet.petPhotos">
-                                    <img class="editImage" ng-src="{{photo.url}}">
+                            <div class="col-sm-5">
+                                <div class="text-center">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                         <input filepicker type="filepicker" data-fp-button-text="<i class='glyphicon glyphicon-open'></i> Upload some puppy pics!" data-fp-button-class="btn btn-geckoboard btn-block btn-red adjustFile" data-fp-services="computer,facebook,dropbox,box" on-success="edit.onFileUploaded(event.fpfile, pet.petId)" />
+                                    </div>
+                                    <br><br>
+                                    <span ng-repeat="photo in pet.petPhotos">
+                                    <span class="photoSpan">
+                                        <img class="editImage" ng-src="{{photo.url}}">
+                                        </span>
+                                    </span>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-7">
+                            <br><br><br>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label for="">Name</label>
-                                        <input class="form-control" ng-model="pet.name">
+                                        <input maxlength="15" class="form-control" ng-model="pet.name">
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="">Breed</label>
@@ -27,18 +40,20 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <label>Birthday</label><br>
-                                        <md-datepicker class="form-control" ng-model="pet.birthday" md-placeholder="Enter date"></md-datepicker>
+                                        <label>Birthday</label>
+                                        <br>
+                                        <md-datepicker ng-model="pet.birthday" md-placeholder="Enter date"></md-datepicker>
                                     </div>
                                     <div class="col-sm-6">
-                                    <label class="genderLabel">Gender</label><br>
+                                        <label class="secondGender">Gender</label>
+                                        <br>
                                         <md-radio-group ng-model="pet.gender">
                                             <md-radio-button value="Male" class="md-primary radioButtons">Male</md-radio-button>
                                             <md-radio-button value="Female" class="radioButtons femaleButton">Female</md-radio-button>
                                         </md-radio-group>
                                     </div>
                                 </div>
-                                <br><br><br>
+                                <br>
                                 <div class="row">
                                     <div class="col-sm-6 adjust">
                                         <label for="food">Favorite Food</label>
@@ -49,26 +64,24 @@
                                         <input type="text" class="form-control" name="toy" ng-model="pet.toy">
                                     </div>
                                 </div>
+                                <br>
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <label for="activity">Favorite Activities</label>
-                                        <textarea ng-model="pet.activity" name="activity" class="form-control"></textarea>
+                                        <textarea ng-model="pet.activity" name="activity" class="form-control faveAct"></textarea>
                                     </div>
                                 </div>
                                 <br>
-                                <br>
-                                <button class="btn btn-success" ng-click="edit.editPet(pet);"><i class="glyphicon glyphicon-save"></i> Save this Pet</button>
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <button class="btn btn-block btn-geckoboard btn-green" ng-click="edit.editPet(pet);"><i class="glyphicon glyphicon-save"></i> Save this Pet</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </md-content>
-                </md-tab>
-                <md-tab label="{{edit.owner.firstName}}">
-                    <md-content class="md-padding">
-                        <h1 class="md-display-2">Tab Two</h1>
                     </md-content>
                 </md-tab>
             </md-tabs>
         </md-content>
     </div>
 </div>
-

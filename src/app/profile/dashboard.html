@@ -1,23 +1,37 @@
 <br>
 <div id="fixMargin" class="container">
-    <div class="col-sm-4">
-        <div class="dogBone">
-            <img height="309" width="300" class="boneImage" src="http://www.petallianceorlando.org/wp-content/uploads/2014/04/pet_bone-icon.png">
-            <div class="boneText">{{dashboard.owner.pets[0].name}}</div>
-            <br>
-            <div class="dogPhoto">
-                <img class="dogMainPic" src="{{dashboard.owner.pets[0].petPhotos[0].url}}">
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-sm-5 col-sm-offset-1">
-                    <button ui-sref="puppr.profile.edit" class="btn btn-geckoboard btn-red btn-block">edit</button>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="dogBone">
+                <img height="309" width="300" class="boneImage" src="http://www.petallianceorlando.org/wp-content/uploads/2014/04/pet_bone-icon.png">
+                <div class="boneText">{{dashboard.owner.pets[0].name}}</div>
+                <br>
+                <div ng-if="dashboard.owner.pets[0].petPhotos.length < 1" class="dogPhoto">
+                    <img class="defaultDog" src="http://i.imgur.com/3YXwmXf.png">
                 </div>
-                <div class="col-sm-5">
-                    <button class="btn btn-geckoboard btn-purple btn-block" ui-sref="puppr.profile.dog({petId: dashboard.owner.pets[0].petId})">my profile</button>
+                <div ng-if="dashboard.owner.pets[0].petPhotos.length >= 1" class="dogPhoto">
+                    <img class="dogMainPic" src="{{dashboard.owner.pets[0].petPhotos[0].url}}">
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <button ui-sref="puppr.profile.edit" class="btn btn-geckoboard btn-red btn-block">edit</button>
+                    </div>
+                    <div class="col-sm-5">
+                        <button class="btn btn-geckoboard btn-purple btn-block" ui-sref="puppr.profile.dog({petId: dashboard.owner.pets[0].petId})">my profile</button>
+                        <br>
+                    </div>
                 </div>
             </div>
-            <br>
+        </div>
+        <div class="col-sm-8">
+            <div class="dogBowl">
+                <img width="230" class="bowlImage" src="http://i.imgur.com/vahgth9.png">
+                <br>
+                <div class="bowlText">
+                    Battle History
+                </div>
+            </div>
         </div>
     </div>
 </div>
