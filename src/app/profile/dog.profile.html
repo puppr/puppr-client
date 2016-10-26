@@ -9,5 +9,10 @@
     <li>{{dog.pet.activity}}</li>
 </ul>
 <div class="col-sm-3">
-    <button type="submit" class="btn btn-primary btn-block" ui-sref="puppr.battle.pets({challengePetId: dog.pet.petId})">Challenge</button>
+    <div ng-if="dog.pet.ownerId != dog.currentOwnerId">
+        <button type="submit" class="btn btn-primary btn-block" ui-sref="puppr.battle.pets({challengePetId: dog.pet.petId})">Challenge</button>
+    </div>
+    <div ng-if="dog.pet.ownerId === dog.currentOwnerId">
+        <h1>Can't Challenge yourself!</h1>
+    </div>
 </div>
