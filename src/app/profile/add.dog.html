@@ -1,0 +1,81 @@
+<md-dialog aria-label="Mango (Fruit)">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Add Dog</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+
+      <div class="md-dialog-content">
+         <div class="row">
+        <div class="col-sm-4">
+            <label for="name">Name</label>
+            <input maxlength="15" type="text" class="form-control" name="name" ng-model="newDog.name">
+        </div>
+
+        hello {{owner.firstName}}
+        <div class="col-sm-4">
+            <label for="breed">Breed</label>
+            <md-select aria-label="Follow" ng-model="newDog.selectedBreed" md-on-open="edit.activateTwo()" style="min-width: 200px;">
+                <md-option ng-value="option" ng-repeat="option in newDog.breeds | orderBy: 'name'">{{option.name}}</md-option>
+            </md-select>
+        </div>
+        <div class="col-sm-3">
+            <label class="birthdayLabel" for="birthday">Birthday</label>
+            <md-datepicker name="date" ng-model="newDog.birthday" md-placeholder="Enter date" required></md-datepicker>
+            <div class="errors" ng-messages="date.$error">
+                <div ng-message="required">Required</div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="slightMargin">
+            <div class="col-sm-4">
+                <label for="food">Favorite Food</label>
+                <input type="text" class="form-control" name="food" ng-model="newDog.food">
+            </div>
+            <div class="col-sm-4">
+                <label for="food">Favorite Toy</label>
+                <input type="text" class="form-control" name="food" ng-model="newDog.toy">
+            </div>
+            <div class="col-sm-3">
+                <label for="gender" class="genderLabel">Gender</label>
+                <br>
+                <md-radio-group ng-model="newDog.gender">
+                    <md-radio-button value="Male" class="md-primary radioButtons">Male</md-radio-button>
+                    <md-radio-button value="Female" class="radioButtons">Female</md-radio-button>
+                </md-radio-group>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="slightMargin">
+            <div class="col-sm-12">
+                <label for="activity">Favorite Activities</label>
+                <textarea ng-model="newDog.activity" name="activity" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="answer()">
+       Cancel
+      </md-button>
+      <md-button ng-click="addPet()">
+        Add Dog
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

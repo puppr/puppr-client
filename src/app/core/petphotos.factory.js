@@ -5,11 +5,12 @@
         .module('app')
         .factory('petPhotoFactory', petPhotoFactory);
 
-    petPhotoFactory.$inject = ['$http', '$q', 'apiUrl'];
+    petPhotoFactory.$inject = ['$http', '$q', 'apiUrl', 'toastr'];
 
-    function petPhotoFactory($http, $q, apiUrl) {
+    function petPhotoFactory($http, $q, apiUrl, toastr) {
         var service = {
-            addPhoto: addPhoto
+            addPhoto: addPhoto,
+            deletePhoto: deletePhoto
         };
         return service;
 
@@ -34,7 +35,7 @@
             var deferred = $q.defer();
 
             //communicating with the api
-            $http.delete(apiUrl + '/petphotoes/' + photo.photoId).then(
+            $http.delete(apiUrl + '/petphotoes/' + photo.petPhotoId).then(
                 function(response) {
                     toastr.success('The photo was successfully removed from the database');
                     deferred.resolve(response.data);

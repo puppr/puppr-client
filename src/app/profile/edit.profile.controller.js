@@ -5,9 +5,9 @@
         .module('app')
         .controller('EditController', EditController);
 
-    EditController.$inject = ['ownerFactory', 'breedFactory', 'petPhotoFactory', '$mdDialog', 'petFactory', '$ngBootbox', '$stateParams', 'authFactory', '$scope'];
+    EditController.$inject = ['ownerFactory', 'breedFactory', 'petPhotoFactory', '$mdDialog', 'petFactory', '$stateParams', 'authFactory', '$scope'];
 
-    function EditController(ownerFactory, breedFactory, petPhotoFactory, $mdDialog, petFactory, $ngBootbox, $stateParams, authFactory, $scope) {
+    function EditController(ownerFactory, breedFactory, petPhotoFactory, $mdDialog, petFactory, $stateParams, authFactory, $scope) {
         var vm = this;
         vm.currentOwnerId = authFactory.ownerId;
         vm.onFileUploaded = onFileUploaded;
@@ -44,15 +44,24 @@
 
 
         vm.editPet = function(pet) {
-            petFactory.editPet(pet).then(
-                function(success) {
-                    console.log("success!");
-                },
-                function(error) {
-                    console.log("error!");
-                }
-            );
-
+            if (vm.name === "" || vm.name === null || vm.dogFood === "" || vm.dogFood === null || vm.toy === "" || vm.toy === null || vm.activity === "" || vm.activity === null) {
+                $mdDialog.show(
+                    $mdDialog.alert()
+                    .clickOutsideToClose(true)
+                    .title('Sorry, an error has occurred')
+                    .textContent("Please make sure all fields have been filled out before continuing")
+                    .ok('Got it!')
+                );
+            } else {
+                petFactory.editPet(pet).then(
+                    function(success) {
+                        console.log("success!");
+                    },
+                    function(error) {
+                        console.log("error!");
+                    }
+                );
+            }
         };
 
         vm.editOwner = function(owner) {
@@ -77,28 +86,39 @@
 
         };
 
-        // vm.deletePhoto = function(photo) {
-        //     $ngBootbox.confirm("Are you sure you want to delete this photo?")
-        //         .then(function() {
-        //             var z = 0;
-        //             for (z = 0; z < vm.owner.pets.length; z++) {
-        //                 if (vm.owner.pets[z].petId === photo.petId) {
-        //                     for (vm.owner.pets[z].petPhotos )
-        //                 }
-        //             }
-        //             var index = vm.owner.pets.petPhotos.indexOf(photo);
-        //             petPhotoFactory.deletePhoto(photo).then(
-        //                 function(photo) {
-        //                     vm.students.splice(index, 1);
-        //                 },
-        //                 function(error) {}
-        //             );
-        //             console.log('Confirmed!');
-        //         }, function() {
-        //             console.log('Confirm dismissed!');
-        //         });
+        vm.deletePhoto = function(photo) {
+            var confirm = $mdDialog.confirm()
+                .title("Are you sure you'd like you delete this image?")
+                .textContent('It will be permanently removed from our database')
+                .ariaLabel('Lucky day')
+                .ok('Yes')
+                .cancel('No');
 
-        // };
+            $mdDialog.show(confirm).then(function() {
+                var z = 0;
+                for (z = 0; z < vm.owner.pets.length; z++) {
+                    if (vm.owner.pets[z].petId === photo.petId) {
+                        var index = vm.owner.pets[z].petPhotos.indexOf(photo);
+                        petPhotoFactory.deletePhoto(photo).then(
+                            function(photo) {
+                                console.log(vm.owner.pets);
+                                console.log(photo);
+                                var z = 0;
+                                for (z = 0; z < vm.owner.pets.length; z++) {
+                                    if (vm.owner.pets[z].petId === photo.petId) {
+                                        // var index = vm.owner.pets[z].petPhotos.indexOf(photo);
+                                        vm.owner.pets[z].petPhotos.splice(index, 1);
+                                    }
+                                }
+
+                            },
+                            function(error) {}
+                        );
+                    }
+                }
+                console.log('Confirmed!');
+            });
+        };
 
         function onFileUploaded(file, petId) {
             var a = 0;
@@ -129,6 +149,77 @@
                     );
                 }
             }
+        }
+
+        vm.showAdvanced = function(ev) {
+            function activateTwo() {
+                breedFactory.getBreeds().then(
+                    function(breeds) {
+                        vm.breeds = breeds;
+                        console.log(vm.breeds);
+                    },
+                    function(error) {
+                        console.log("error!");
+                    }
+                );
+            }
+            $mdDialog.show({
+                    controller: DialogController,
+                    templateUrl: 'app/profile/add.dog.html',
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+                })
+                .then(function(answer) {
+                    $scope.status = 'You said the information was "' + answer + '".';
+                }, function() {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+        };
+
+        function DialogController($scope, $mdDialog) {
+            $scope.hide = function() {
+                $mdDialog.hide();
+            };
+
+            $scope.cancel = function() {
+                $mdDialog.cancel();
+            };
+
+            $scope.addPet = function() {
+                if (vm.selectedBreed === undefined || vm.name === "" || vm.name === null || vm.birthday === undefined || vm.food === "" || vm.food === null || vm.toy === "" || vm.toy === null || vm.activity === "" || vm.activity === null) {
+                    $mdDialog.show(
+                        $mdDialog.alert()
+                        .clickOutsideToClose(true)
+                        .title('Sorry, an error has occurred')
+                        .textContent("Please make sure all fields have been filled out before continuing")
+                        .ok('Got it!')
+                    );
+                } else {
+                    vm.newPet = {
+                        "name": vm.name,
+                        "dateOfBirth": vm.birthday,
+                        "dogFood": vm.food,
+                        "gender": vm.gender,
+                        "toy": vm.toy,
+                        "activity": vm.activity,
+                        "ownerId": vm.currentOwnerId,
+                        "breedId": vm.selectedBreed.breedId,
+                    };
+                    console.log(vm.newPet);
+                    vm.saving = true;
+                    petFactory.addPet(vm.newPet).then(
+                        function(theNewPet) {
+                            vm.saving = false;
+                            vm.theNewPet = theNewPet;
+                            console.log(vm.theNewPet);
+                            $state.go('puppr.profile.dashboard', { ownerId: vm.currentOwnerId });
+                        },
+                        function() {}
+                    );
+                }
+            };
         }
 
 
