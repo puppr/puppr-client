@@ -14,7 +14,7 @@
         vm.endDate = {};
         vm.now = moment();
         activate1();
-        activate2();
+        
 
         var votedBattles = localStorageService.get('votedBattles') || []; // this should be an array
 

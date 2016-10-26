@@ -3,7 +3,7 @@
 <ul>
     <li class="btn btn-primary" ui-sref="puppr.profile.owner({ownerId: dog.pet.ownerId})">{{dog.pet.name}}</li>
     <li>{{dog.pet.dateOfBirth | date:"MMMM d, y"}}</li>
-    <li>{{dog.pet.dateOfBirth}}</li>
+<!--     <li>{{dog.pet.dateOfBirth}}</li> -->
     <li>{{dog.pet.dogFood}}</li>
     <li>{{dog.pet.toy}}</li>
     <li>{{dog.pet.activity}}</li>
@@ -13,6 +13,6 @@
         <button type="submit" class="btn btn-primary btn-block" ui-sref="puppr.battle.pets({challengePetId: dog.pet.petId})">Challenge</button>
     </div>
     <div ng-if="dog.pet.ownerId === dog.currentOwnerId">
-        <h1>Can't Challenge yourself!</h1>
+        
     </div>
 </div>
