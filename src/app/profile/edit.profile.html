@@ -71,7 +71,7 @@
                                         </span>
                                     <span ng-if="pet.petPhotos.length > 0" ng-repeat="photo in pet.petPhotos">
                                         <span class="photoSpan">
-                                        <img class="editImage" ng-src="{{photo.url}}"><!-- <button ng-click="edit.deletePhoto(photo)">delete</button> -->
+                                        <img class="editImage" ng-src="{{photo.url}}"><i class="deleteImage glyphicon glyphicon-trash" ng-click="edit.deletePhoto(photo)"><md-tooltip md-visible="demo.showTooltip" md-direction="top">delete</md-tooltip></i>
                                         </span>
                                     </span>
                                 </div>
@@ -93,13 +93,18 @@
                                     </div>
                                 </div>
                                 <br>
+                                <br>
+                                <br>
                                 <div class="row">
-                                    <div class="col-sm-6">
-                                        <label>Birthday</label>
-                                        <br>
-                                        <md-datepicker ng-model="pet.birthday" md-placeholder="Enter date"></md-datepicker>
+                                    <div class="col-sm-4 adjust">
+                                        <label for="food">Favorite Food</label>
+                                        <input type="text" class="form-control" name="food" ng-model="pet.dogFood">
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4 adjust">
+                                        <label for="toy adjust">Favorite Toy</label>
+                                        <input type="text" class="form-control" name="toy" ng-model="pet.toy">
+                                    </div>
+                                    <div class="col-sm-4">
                                         <label class="secondGender">Gender</label>
                                         <br>
                                         <md-radio-group ng-model="pet.gender">
@@ -109,16 +114,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <div class="row">
-                                    <div class="col-sm-6 adjust">
-                                        <label for="food">Favorite Food</label>
-                                        <input type="text" class="form-control" name="food" ng-model="pet.dogFood">
-                                    </div>
-                                    <div class="col-sm-6 adjust">
-                                        <label for="toy adjust">Favorite Toy</label>
-                                        <input type="text" class="form-control" name="toy" ng-model="pet.toy">
-                                    </div>
-                                </div>
+                                <br>
                                 <br>
                                 <div class="row">
                                     <div class="col-sm-12">
@@ -140,3 +136,4 @@
         </md-content>
     </div>
 </div>
+<md-button class="md-primary md-raised" ng-click="edit.showAdvanced($event)">+ add dog</md-button>
