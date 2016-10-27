@@ -7,7 +7,7 @@
                 <br>
                 <br>
                 <md-radio-group class="radioPets" ng-model="pet.selectedPet">
-                    <md-radio-button ng-repeat="pets in pet.owners.pets" value="{{pets.petId}}" ng-click="challenger()" class="md-primary">{{pets.name}}</md-radio-button>
+                    <md-radio-button ng-repeat="pets in pet.owners.pets" value="{{pets.petId}}" ng-click="pet.challenger(pets.petId)" class="md-primary">{{pets.name}}</md-radio-button>
                 </md-radio-group>
             </div>
             <div class="selectCategory">
@@ -20,7 +20,10 @@
             </div>
         </div>
         <div class="col-sm-7">
-            <div class="battlePhoto">
+            <div  class="battlePhoto">
+            <md-radio-group class="radioPets" ng-model="pet.selectedPhoto">
+                    <md-radio-button ng-repeat="photo in pet.pet.photos" value="{{photo.url}}" class="md-primary"><img ng-src="{{photo.url}}"></md-radio-button>
+                </md-radio-group>
             </div>
         </div>
     </div>

@@ -11,6 +11,18 @@
         var vm = this;
         vm.owners = [];
         activate();
+
+        vm.challenger = function activate(pets) {
+            petFactory.getPetById(pets).then(
+                function(pet) {
+                    vm.pet= pet;
+                    console.log(vm.pet);
+                },
+                function(error) {
+                    console.log("error!");
+                }
+            );
+        };
         
 
         function activate() {
@@ -43,6 +55,7 @@
                 petOneId: vm.selectedPet,
                 petTwoId: $stateParams.challengePetId,
                 categoryId: vm.selectedCategory,
+                challengerPhoto: vm.selectedPhoto,
                 startDate: moment(),
                 endDate: moment().clone().add(3, 'days')
             };
