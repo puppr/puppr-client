@@ -1,26 +1,29 @@
-<br>	
 <br>
-<br>
-<br>
-
 <div class="container" id="fixMargin">
-<label>Choose your champion!</label>
-<ul ng-repeat="pets in pet.owners.pets">
-	<input id="p1" class="Deez" name="challenger" type="radio"  value="{{pets.petId}}" ng-click="challenger()" ng-model="pet.selectedPet"> {{pets.name}}!</input>
-
-
-	
-</ul>
-
-
-
-<select ng-model="pet.selectedCategory">
-               <option ng-repeat="categories in pet.categories" value="{{categories.categoryId}}">{{categories.name}} </option>
-</select>
-
-
-
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="championSelection">
+                <label class="championTitle">Choose your champion</label>
+                <br>
+                <br>
+                <md-radio-group class="radioPets" ng-model="pet.selectedPet">
+                    <md-radio-button ng-repeat="pets in pet.owners.pets" value="{{pets.petId}}" ng-click="challenger()" class="md-primary">{{pets.name}}</md-radio-button>
+                </md-radio-group>
+            </div>
+            <div class="selectCategory">
+                <label class="championTitle">Select a category</label>
+                <br>
+                <br>
+                <md-select aria-label="Follow" ng-model="pet.selectedCategory" md-on-open="pet.getCategories()" style="min-width: 200px;">
+                    <md-option ng-value="{{categories.categoryId}}" ng-repeat="categories in pet.categories | orderBy: 'name'">{{categories.name}}</md-option>
+                </md-select>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="battlePhoto">
+            </div>
+        </div>
+    </div>
+</div>
 <button type="submit" ng-click="pet.addBattle()">click</button>
 </div>
-
-

@@ -5,13 +5,12 @@
         .module('app')
         .controller('PetsController', PetsController);
 
-    PetsController.$inject = ['$state', 'battleFactory', '$ngBootbox', 'petFactory', '$stateParams', 'authFactory', 'ownerFactory', 'categoryFactory', 'moment'];
+    PetsController.$inject = ['$timeout', '$state', 'battleFactory', '$ngBootbox', 'petFactory', '$stateParams', 'authFactory', 'ownerFactory', 'categoryFactory', 'moment'];
 
-    function PetsController($state, battleFactory, $ngBootbox, petFactory, $stateParams, authFactory, ownerFactory, categoryFactory, moment) {
+    function PetsController($timeout, $state, battleFactory, $ngBootbox, petFactory, $stateParams, authFactory, ownerFactory, categoryFactory, moment) {
         var vm = this;
         vm.owners = [];
         activate();
-        activate1();
         
 
         function activate() {
@@ -24,20 +23,19 @@
         }
 
 
-
-        function activate1() {
-            return categoryFactory.getCategories()
-                .then(
-                    function(data) {
-
-
-                        vm.categories = data;
-                        console.log(data);
-
-
+        vm.getCategories = function() {
+            return $timeout(function() {
+                categoryFactory.getCategories().then(
+                    function(categories) {
+                        vm.categories = categories;
+                        console.log(vm.categories);
+                    },
+                    function(error) {
+                        console.log("error!");
                     }
                 );
-        }
+            }, 500);
+        };
 
 
         vm.addBattle = function() {

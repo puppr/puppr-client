@@ -1,40 +1,11 @@
 <br>
-<br>
-<br>
-<br>  
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>  
-<br>
-<br>
-
-<h1>Challenge your opponent from the list below!</h1>
-
-
-<table class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Pet Activities</th>
-      <th>Breed</th>
-      <th>Age</th>
-
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="pets in search.pets">
-      <td ui-sref="puppr.profile.dog({petId: pets.petId})">{{pets.name}}</td>
-      <td>{{pets.activity}}</td>
-      <td>{{pets.breed.name}}</td>
-      <td>{{pets.dateOfBirth | date:'mediumDate'}}</td>
-    </tr>
-  </tbody>
-</table>
-    
-
-
-
+<div id="fixMargin" class="container">
+    <div class="row">
+        <div ng-repeat="pet in search.pets | orderBy: 'name'" class="col-sm-3">
+            <div>
+                <a ui-sref="puppr.profile.dog({petId: pet.petId})"><img class="allDogs" ng-src="{{pet.photos[0].url}}"></a>
+                <div class="allDogsCapt">{{pet.name}}</div>
+            </div>
+        </div>
+    </div>
+</div>
