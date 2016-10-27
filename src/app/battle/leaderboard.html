@@ -1,21 +1,30 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>Rank</th>
-      <th>ID</th>
+      <th>Id</th>
       <th>Name</th>
-      <th>Wins</th>
+      <th>Votes</th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="pet in leaderboard.pets | orderBy:'-win'| limitTo:10">
+    <tr ng-repeat="pet in leaderboard.pets | orderBy:'-battleVote'| limitTo:10">
       <th>{{$index + 1}}</th>
       <td>:D</td>
       <td>{{pet.name}}</td>
-      <td>{{pet.win}}</td>
+      <td>{{pet.battleVote.length}}</td>
     </tr>
   </tbody>
 </table>

@@ -1,0 +1,23 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="row">
+  <div ng-repeat="battles in vote.battles" class="col-xs-3 col-md-3 col-lg-3" style="max-width: 250px;">
+<div class="panel panel-heading">{{battles.category.name}}</div>
+    <a   href="#" class="thumbnail">
+      <img src="http://www.clipartkid.com/images/524/comic-explosion-clip-art-at-clker-com-vector-clip-art-online-tYCEYQ-clipart.png" alt="..." style="max-height: 250px;" ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+    </a>
+  </div>
+  ...
+</div>

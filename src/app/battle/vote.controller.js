@@ -11,6 +11,7 @@
         var vm = this;
 
         activate();
+        activate2();
 
         function activate() {
             battleFactory.getBattles().then(
@@ -22,6 +23,18 @@
                 function(error) {}
             );
         }
+        // function activate2(){
+        // if (moment(vm.currentBattle.endDate).isBefore(moment())) {
+                
+        //         .then(function)
+                
+        //     } else{
+        //         return;
+
+        //     }
+
+    
+        // }
 
 
     }

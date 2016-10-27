@@ -5,12 +5,12 @@
             .module('app')
             .controller('LeaderboardController', LeaderboardController);
 
-        LeaderboardController.$inject = ['petFactory', '$ngBootbox', "$stateParams"];
+        LeaderboardController.$inject = ['petFactory', '$ngBootbox', '$stateParams', 'battleVoteFactory'];
 
-        function LeaderboardController(petFactory, $ngBootbox, $stateParams) {
+        function LeaderboardController(petFactory, $ngBootbox, $stateParams, battleVoteFactory) {
             var vm = this;
-            
             activate();
+            activate1();
 
             function activate() {
                 return petFactory.getPets()
@@ -19,6 +19,20 @@
                         
 
                             vm.pets = data;
+
+
+                        }
+                    );
+            }
+
+            function activate1() {
+                return battleVoteFactory.getBattleVotes()
+                    .then(
+                        function(data) {
+                        
+
+                            vm.battlevotes = data;
+                            console.log(data);
 
 
                         }
