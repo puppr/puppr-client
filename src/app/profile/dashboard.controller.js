@@ -10,8 +10,7 @@
     function DashboardController(ownerFactory, petFactory, $ngBootbox, $stateParams, authFactory, $state, battleFactory) {
         var vm = this;
      vm.currentOwnerId = authFactory.ownerId;
-        // vm.petId = owner.pets[0].petId;
-        // activate2();
+       
 
         function activate(id) {
             ownerFactory.getCurrentOwner().then(
@@ -25,16 +24,6 @@
                 }
             );
         }
-
-        // function activate2(petId){
-        //     battleFactory.getBattlesbyId(petId)
-        //     .then(function(data){
-
-            
-        //         console.log();
-
-        //     }
-        // );}
 
 
 
