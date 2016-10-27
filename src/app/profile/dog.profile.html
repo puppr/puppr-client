@@ -4,8 +4,8 @@
         <div class="dogProfileOne">
             <br>
             <span>
-            <img class="dogProfPic" ng-src="{{dog.pet.petPhotos[0].url}}">
-            <a ui-sref="puppr.profile.owner({ownerId: dog.pet.ownerId})"><img class="smallOwnerPic" ng-src="{{dog.pet.owner.photo}}"></a>
+            <img class="dogProfPic" ng-src="{{dog.pet.photos[0].url}}">
+            <a ui-sref="puppr.profile.owner({user: dog.pet.owner.userName})"><img class="smallOwnerPic" ng-src="{{dog.pet.owner.photo}}"></a>
             </span>
             <br>
             <br>

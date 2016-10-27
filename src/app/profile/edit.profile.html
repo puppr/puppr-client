@@ -23,9 +23,19 @@
                             </div>
                             <div class="col-sm-8">
                                 <div class="row">
+                                    <div class="col-sm-12">
+                                        <div ng-if="edit.owner.pets.length <= 2">
+                                            <button class="btn geckoboard btn-purple add-dog" ui-sref="puppr.new.dog">+ add dog</button>
+                                        </div>
+                                        <div ng-if="edit.owner.pets.length >= 3">
+                                            <button class="btn geckoboard btn-grey add-dog">+ add dog
+                                                <md-tooltip md-visible="demo.showTooltip" md-direction="left">Sorry, you can only have three dogs per account</md-tooltip>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="nameMargin">
-                                        <br>
-                                        <br>
                                         <div class="col-sm-6">
                                             <label for="name">First Name</label>
                                             <input maxlength="15" type="text" class="form-control" ng-model="edit.owner.firstName">
@@ -59,7 +69,16 @@
                             <div class="col-sm-5">
                                 <div class="text-center">
                                     <div class="col-sm-8 col-sm-offset-2">
-                                        <input filepicker type="filepicker" data-fp-button-text="<i class='glyphicon glyphicon-open'></i> Upload some puppy pics!" data-fp-button-class="btn btn-geckoboard btn-block btn-red adjustFile" data-fp-services="computer,facebook,dropbox,box" on-success="edit.onFileUploaded(event.fpfile, pet.petId)" />
+                                        <div ng-if="pet.petPhotos.length <= 3">
+                                            <input filepicker type="filepicker" data-fp-button-text="<i class='glyphicon glyphicon-open'></i> Upload some puppy pics!" data-fp-button-class="btn btn-geckoboard btn-block btn-orange adjustFile" data-fp-services="computer,facebook,dropbox,box" on-success="edit.onFileUploaded(event.fpfile, pet.petId)" />
+                                            <br>
+                                        </div>
+                                        <div ng-if="pet.petPhotos.length >= 4">
+                                            <button type="submit" class="btn btn-geckoboard btn-grey btn-block">Upload some puppy pics!
+                                                <md-tooltip md-visible="demo.showTooltip" md-direction="bottom">Sorry, you can only upload four photos per dog!</md-tooltip>
+                                            </button>
+                                            <br>
+                                        </div>
                                     </div>
                                     <br>
                                     <br>
@@ -77,7 +96,11 @@
                                 </div>
                             </div>
                             <div class="col-sm-7">
-                                <br>
+                                <div class="row">
+                                    <div class="col-sm-1 col-sm-offset-11">
+                                        <span class="xContainer"><i class="glyphicon glyphicon-remove theX" ng-click="edit.deleteDog(pet)"></i><md-tooltip md-visible="xcont" md-direction="left">Delete this dog</md-tooltip></span>
+                                    </div>
+                                </div>
                                 <br>
                                 <div class="row">
                                     <div class="dogMargin">
@@ -136,4 +159,3 @@
         </md-content>
     </div>
 </div>
-<md-button class="md-primary md-raised" ng-click="edit.showAdvanced($event)">+ add dog</md-button>
