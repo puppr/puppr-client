@@ -20,13 +20,18 @@
             </div>
         </div>
         <div class="col-sm-7">
-            <div  class="battlePhoto">
-            <md-radio-group class="radioPets" ng-model="pet.selectedPhoto">
-                    <md-radio-button ng-repeat="photo in pet.pet.photos" value="{{photo.url}}" class="md-primary"><img ng-src="{{photo.url}}"></md-radio-button>
-                </md-radio-group>
-            </div>
+            <div ng-if="pet.pet.photos.length > 0" class="battlePhoto">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <md-radio-group class="radioPets" ng-model="pet.selectedPhoto">
+                            <md-radio-button ng-repeat="photo in pet.pet.photos" value="{{photo.url}}" class="md-primary radioButtons"><img class="selectThePic" ng-src="{{photo.url}}" style="max-height: 250px;" style="max-width: 250px;"></md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </div>
+            </div><br>
+            <button class="btn btn-block btn-geckoboard btn-orange" type="submit" ng-click="pet.addBattle()">Challenge!</button>
         </div>
+
     </div>
 </div>
-<button type="submit" ng-click="pet.addBattle()">click</button>
 </div>

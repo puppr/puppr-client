@@ -575,10 +575,26 @@ md-checkbox.md-checked.blueCheck .md-icon {
     box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
 }
 
+.dogBowl2 {
+    height: 210px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #5f617a;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
+}
+
 .bowlImage {
     text-align: center;
     position: relative;
     margin-top: -30px;
+}
+
+.inactiveText {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px rgba(0,0,0,.8);
 }
 
 .bowlText {
@@ -1014,4 +1030,53 @@ ul > li {
 
 .overFlower {
     overflow-x: hidden;
+}
+
+.battleText {
+    font-weight: bold;
+    margin-top: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.catPic {
+    margin-left: 10px;
+    float: left;
+}
+
+.coming {  
+    margin-left: ;  
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .8);
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    color: white;
+}
+
+.meowr {
+    margin-right: 10px;
+    text-align: right;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .8);
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 65px;
+    color: white;
+}
+
+.battlePhoto {
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #804a62;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
+}
+
+.selectThePic {
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
+    object-fit: cover;
+    height: 120px;
+    width: 120px;
+    margin-bottom: 11px;
+    border-radius: 100%;
+    border: 5px solid #c92b1b;
+    margin-right: 10px;
 }

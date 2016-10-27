@@ -5,135 +5,164 @@
             <md-tabs md-dynamic-height md-border-bottom>
                 <md-tab label="Best Camouflaged">
                     <md-content class="md-padding">
-                        <div class="row overFlower"">
-                            <div class="col-sm-2 text-center" ng-repeat="battles in vote.battles" ng-if="battles.category.name === 'Best Camouflaged'">
-                                <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
-                                    <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="180px">
-                                </a>
+                        <div class="row overFlower">
+                            <div class="col-sm-2 text-center " ng-repeat="battles in vote.battles " ng-if="battles.category.name==='Best Camouflaged' ">
+                                <div ng-if="vote.isBefore(battles.endDate) ">
+                                    <a ui-sref="puppr.battle.clash({battleId: battles.battleId}) ">
+                                        <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png " width="180px ">
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </md-content>
                 </md-tab>
-                <md-tab label="Biggest">
-                    <md-content class="md-padding">
-                        <div class="row overFlower"">
-                            <div class="col-sm-2 text-center" ng-repeat="battles in vote.battles" ng-if="battles.category.name === 'Biggest'">
-                                <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
-                                    <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="180px">
-                                </a>
+                <md-tab label="Biggest ">
+                    <md-content class="md-padding ">
+                        <div class="row overFlower">
+                            <div class="col-sm-2 text-center" ng-repeat="battles in vote.battles" ng-if="battles.category.name === 'Biggest || vote.isBefore(battles.endDate) '">
+                                <div ng-if="vote.isBefore(battles.endDate) ">
+                                    <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+                                        <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="180px">
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </md-content>
                 </md-tab>
                 <md-tab label="Cutest">
                     <md-content class="md-padding">
-                    <div class="row overFlower"">
-                        <div class="col-sm-2 text-center" ng-repeat="battles in vote.battles" ng-if="battles.category.name === 'Cutest'">
-                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
-                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="180px">
-                            </a>
-                        </div>
-                        </div>
-                    </md-content>
-                </md-tab>
-                <md-tab label="Fluffiest">
-                    <md-content class="md-padding">
-                    <div class="row overFlower"">
-                        <div class="col-sm-2 text-center" ng-repeat="battles in vote.battles" ng-if="battles.category.name === 'Fluffiest'">
-                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
-                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="180px">
-                            </a>
-                        </div>
+                        <div class="row overFlower">
+                            <div class="col-sm-2 text-center " ng-repeat="battles in vote.battles " ng-if="battles.category.name==='Cutest' ">
+                                <div ng-if="vote.isBefore(battles.endDate) ">
+                                    <a ui-sref="puppr.battle.clash({battleId: battles.battleId}) ">
+                                        <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png " width="180px ">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </md-content>
                 </md-tab>
-                <md-tab label="Funniest">
+                <md-tab label="Fluffiest ">
                     <md-content class="md-padding">
-                    <div class="row overFlower"">
-                        <div class="col-sm-2 text-center" ng-repeat="battles in vote.battles" ng-if="battles.category.name === 'Funniest'">
-                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
-                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="180px">
-                            </a>
-                        </div>
+                        <div class="row overFlower">
+                            <div class="col-sm-2 text-center " ng-repeat="battles in vote.battles " ng-if="battles.category.name==='Fluffiest' ">
+                                <div ng-if="vote.isBefore(battles.endDate) ">
+                                    <a ui-sref="puppr.battle.clash({battleId: battles.battleId}) ">
+                                        <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png " width="180px ">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </md-content>
                 </md-tab>
-                <md-tab label="Happiest">
+                <md-tab label="Funniest ">
                     <md-content class="md-padding">
-                    <div class="row overFlower"">
-                        <div class="col-sm-2 text-center" ng-repeat="battles in vote.battles" ng-if="battles.category.name === 'Happiest'">
-                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
-                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="180px">
-                            </a>
-                        </div>
+                        <div class="row overFlower">
+                            <div class="col-sm-2 text-center " ng-repeat="battles in vote.battles " ng-if="battles.category.name==='Funniest' ">
+                                <div ng-if="vote.isBefore(battles.endDate) ">
+                                    <a ui-sref="puppr.battle.clash({battleId: battles.battleId}) ">
+                                        <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png " width="180px ">
+                                    </a>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </md-content>
                 </md-tab>
-                <md-tab label="Most Festive">
-                    <md-content class="md-padding">
-                    <div class="row overFlower"">
-                        <div class="col-sm-2 text-center" ng-repeat="battles in vote.battles" ng-if="battles.category.name === 'Most Festive'">
-                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
-                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="180px">
-                            </a>
-                        </div>
-                        </div>
-                    </md-content>
-                </md-tab>
-                <md-tab label="Most Like Harambe">
-                    <md-content class="md-padding">
-                    <div class="row overFlower"">
-                        <div class="col-sm-2 text-center" ng-repeat="battles in vote.battles" ng-if="battles.category.name === 'Most Like Harambe'">
-                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
-                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="180px">
-                            </a>
-                        </div>
+                <md-tab label="Happiest ">
+                    <md-content class="md-padding ">
+                        <div class="row overFlower">
+                            <div class="col-sm-2 text-center " ng-repeat="battles in vote.battles " ng-if="battles.category.name==='Happiest' ">
+                                <div ng-if="vote.isBefore(battles.endDate) ">
+                                    <a ui-sref="puppr.battle.clash({battleId: battles.battleId}) ">
+                                        <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png " width="180px ">
+                                    </a>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </md-content>
                 </md-tab>
-                <md-tab label="Smallest">
-                    <md-content class="md-padding">
-                    <div class="row overFlower"">
-                        <div class="col-sm-2 text-center" ng-repeat="battles in vote.battles" ng-if="battles.category.name === 'Smallest'">
-                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
-                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="180px">
-                            </a>
-                        </div>
-                        </div>
-                    </md-content>
-                </md-tab>
-                <md-tab label="Spookiest">
-                    <md-content class="md-padding">
-                    <div class="row overFlower"">
-                        <div class="col-sm-2 text-center" ng-repeat="battles in vote.battles" ng-if="battles.category.name === 'Spookiest'">
-                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
-                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="180px">
-                            </a>
-                        </div>
+                <md-tab label="Most Festive ">
+                    <md-content class="md-padding ">
+                        <div class="row overFlower">
+                            <div class="col-sm-2 text-center " ng-repeat="battles in vote.battles " ng-if="battles.category.name==='Most Festive' ">
+                                <div ng-if="vote.isBefore(battles.endDate) ">
+                                    <a ui-sref="puppr.battle.clash({battleId: battles.battleId}) ">
+                                        <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png " width="180px ">
+                                    </a>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </md-content>
                 </md-tab>
-                <md-tab label="Ugliest">
-                    <md-content class="md-padding">
-                    <div class="row overFlower">
-                        <div class="col-sm-2 text-center" ng-repeat="battles in vote.battles" ng-if="battles.category.name === 'Ugliest'">
-                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
-                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="180px">
-                            </a>
+                <md-tab label="Most Like Harambe ">
+                    <md-content class="md-padding ">
+                        <div class="row overFlower">
+                            <div class="col-sm-2 text-center " ng-repeat="battles in vote.battles " ng-if="battles.category.name==='Most Like Harambe' ">
+                                <div ng-if="vote.isBefore(battles.endDate) ">
+                                    <a ui-sref="puppr.battle.clash({battleId: battles.battleId}) ">
+                                        <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png " width="180px ">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Smallest ">
+                    <md-content class="md-padding ">
+                        <div class="row overFlower">
+                            <div class="col-sm-2 text-center " ng-repeat="battles in vote.battles " ng-if="battles.category.name==='Smallest' ">
+                                <div ng-if="vote.isBefore(battles.endDate) ">
+                                    <a ui-sref="puppr.battle.clash({battleId: battles.battleId}) ">
+                                        <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png " width="180px ">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Spookiest ">
+                    <md-content class="md-padding ">
+                        <div class="row overFlower">
+                            <div class="col-sm-2 text-center " ng-repeat="battles in vote.battles " ng-if="battles.category.name==='Spookiest' ">
+                                <div ng-if="vote.isBefore(battles.endDate) ">
+                                    <a ui-sref="puppr.battle.clash({battleId: battles.battleId}) ">
+                                        <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png " width="180px ">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Ugliest ">
+                    <md-content class="md-padding ">
+                        <div class="row overFlower ">
+                            <div class="col-sm-2 text-center " ng-repeat="battles in vote.battles " ng-if="battles.category.name==='Ugliest' ">
+                                <div ng-if="vote.isBefore(battles.endDate) ">
+                                    <a ui-sref="puppr.battle.clash({battleId: battles.battleId}) ">
+                                        <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png " width="180px ">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </md-content>
                 </md-tab>
             </md-tabs>
         </md-content>
     </div>
-    <h1>Inactive</h1>
-    <div class="row">
-        <div ng-repeat="battles in vote.battles | limitTo:4" ng-if="vote.isAfter(battles.endDate)" class="col-xs-3 col-md-3 col-lg-3" style="max-width: 250px;">
-            <div class="panel panel-heading">{{battles.category.name}}</div>
-            <a href="#" class="thumbnail">
-                <img src="http://www.clipartkid.com/images/524/comic-explosion-clip-art-at-clker-com-vector-clip-art-online-tYCEYQ-clipart.png" alt="..." style="max-height: 250px;" ui-sref="puppr.battle.clash({battleId: battles.battleId})">
-            </a>
+    <br><br>
+    <div class="row ">
+        <div class="col-sm-12">
+            <div class="dogBowl2">
+            <p class="inactiveText">Recently Ended Battles</p>
+                <div ng-repeat="battles in vote.battles | limitTo:4 " ng-if="vote.isAfter(battles.endDate) " class="col-sm-3">
+                    <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+                        <img width="180px" src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png">
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

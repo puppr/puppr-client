@@ -27,22 +27,14 @@
         <div class="col-sm-8">
             <div class="dogBowl">
                 <img width="230" class="bowlImage" src="http://i.imgur.com/vahgth9.png">
-                <br>
                 <div class="bowlText">
                     Battle History
                 </div>
+                 <div ng-repeat="battles in dashboard.owner.pets[0].battle">
+                    <button class="btn btn-geckoboard btn-orange" ui-sref="puppr.battle.clash({battleId: battles.battleId})">{{battles.petTwoVotes}} - Me  vs  Opponent - {{battles.petOneVotes}}</button>
+                </div>
+                <br>
             </div>
         </div>
-        <div>
-            <ul ng-repeat="battles in dashboard.owner.pets[0].battle">
-                <li a href="#" ui-sref="puppr.battle.clash({battleId: battles.battleId})">>You {{battles.petTwoVotes}} vs {{battles.petOneVotes}} Opponent</li>
-            </ul>
-        </div>
-        <!-- <div ng-if="dashboard.owner.pets.petId != dashboard.owner.pets.battle.petOneId">
-                        
-                <h1>Yolo</h1>
-                    </div>
-                    <div ng-if="dashboard.owner.pets.petId === dashboard.owner.pets.battle.petTwoId">
-        </div> -->
     </div>
 </div>

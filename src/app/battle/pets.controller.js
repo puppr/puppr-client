@@ -52,8 +52,8 @@
 
         vm.addBattle = function() {
             vm.newBattle = {
-                petOneId: vm.selectedPet,
-                petTwoId: $stateParams.challengePetId,
+                petTwoId: vm.selectedPet,
+                petOneId: $stateParams.challengePetId,
                 categoryId: vm.selectedCategory,
                 challengerPhoto: vm.selectedPhoto,
                 startDate: moment(),

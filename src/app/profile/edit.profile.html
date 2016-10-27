@@ -91,7 +91,7 @@
                                     <span ng-if="pet.petPhotos.length > 0" ng-repeat="photo in pet.petPhotos">
                                         <span class="photoSpan">
                                         <img class="editImage" ng-src="{{photo.url}}"><i class="deleteImage glyphicon glyphicon-trash" ng-click="edit.deletePhoto(photo)"><md-tooltip md-visible="demo.showTooltip" md-direction="top">delete</md-tooltip></i>
-                                        <button ng-click="edit.defaultPic(photo)">default</button>
+                                        <!-- <button ng-click="edit.defaultPic(photo)">default</button> -->
                                         </span>
                                     </span>
                                 </div>
