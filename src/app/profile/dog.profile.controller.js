@@ -13,9 +13,9 @@
 
         activate();   
 
-        vm.currentOwnerId = authFactory.ownerId;
+  
 
-        console.log(vm.currentOwnerId);
+
 
         function activate() {
             if ($stateParams.petId) {
