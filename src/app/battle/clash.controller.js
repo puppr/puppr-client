@@ -5,9 +5,9 @@
         .module('app')
         .controller('ClashController', ClashController);
 
-    ClashController.$inject = ['battleVoteFactory', 'battleFactory', '$ngBootbox', 'petFactory', '$stateParams', 'authFactory', 'ownerFactory', 'localStorageService', 'moment'];
+    ClashController.$inject = ['$mdDialog', 'battleVoteFactory', 'battleFactory', '$ngBootbox', 'petFactory', '$stateParams', 'authFactory', 'ownerFactory', 'localStorageService', 'moment'];
 
-    function ClashController(battleVoteFactory, battleFactory, $ngBootbox, petFactory, $stateParams, authFactory, ownerFactory, localStorageService, moment) {
+    function ClashController($mdDialog, battleVoteFactory, battleFactory, $ngBootbox, petFactory, $stateParams, authFactory, ownerFactory, localStorageService, moment) {
         var vm = this;
         vm.vote = {};
         vm.vote1 = {};
@@ -56,7 +56,13 @@
         vm.vote1 = function() {
 
             if (moment(vm.currentBattle.endDate).isBefore(moment())) {
-                alert('This battle is no longer active!');
+                $mdDialog.show(
+                    $mdDialog.alert()
+                    .clickOutsideToClose(true)
+                    .title('Uh Oh')
+                    .textContent("This battle is no longer active, sorry!")
+                    .ok('Got it!')
+                );
                 return;
             } else if (votedBattles.indexOf($stateParams.battleId) === -1) {
                 vm.currentBattle.challenger.votes++;
@@ -76,14 +82,26 @@
                     }
                 );
             } else {
-                alert('You already voted');
+                $mdDialog.show(
+                    $mdDialog.alert()
+                    .clickOutsideToClose(true)
+                    .title('Oops')
+                    .textContent("You've already voted on this battle!")
+                    .ok('Got it!')
+                );
             }
         };
 
 
         vm.vote2 = function() {
             if (moment(vm.currentBattle.endDate).isBefore(moment())) {
-                alert('This battle is no longer active!');
+                $mdDialog.show(
+                    $mdDialog.alert()
+                    .clickOutsideToClose(true)
+                    .title('Uh-Oh')
+                    .textContent("This battle is no longer active, sorry!")
+                    .ok('Got it!')
+                );
                 return;
             } else if (votedBattles.indexOf($stateParams.battleId) === -1) {
                 vm.currentBattle.defender.votes++;
@@ -104,7 +122,13 @@
                     localStorageService.set('votedBattles', $stateParams.battleId)
                 );
             } else {
-                alert('You already voted');
+                $mdDialog.show(
+                    $mdDialog.alert()
+                    .clickOutsideToClose(true)
+                    .title('Oops')
+                    .textContent("You've already voted on this battle")
+                    .ok('Got it!')
+                );
             }
         };
 

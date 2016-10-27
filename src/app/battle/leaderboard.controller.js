@@ -19,6 +19,7 @@
                         
 
                             vm.pets = data;
+                            console.log(vm.pets);
 
 
                         }

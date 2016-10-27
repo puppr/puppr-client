@@ -1,11 +1,14 @@
 <br>
 <div id="fixMargin" class="container">
     <div class="row">
+    <div class="col-sm-12 dogBowl">
         <div ng-repeat="pet in search.pets | orderBy: 'name'" class="col-sm-3">
             <div>
+            <br>
                 <a ui-sref="puppr.profile.dog({petId: pet.petId})"><img class="allDogs" ng-src="{{pet.photos[0].url}}"></a>
                 <div class="allDogsCapt">{{pet.name}}</div>
             </div>
         </div>
+    </div>
     </div>
 </div>

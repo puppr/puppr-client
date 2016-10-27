@@ -1,40 +1,44 @@
 <br>
 <div class="container" id="fixMargin">
-    <div class="row">
-        <div class="col-md-6 col-lg-6">
-        <label for="">Challenger</label>
-            <div class="panel panel-default" >
-                <div class="panel-heading"><h1>{{clash.currentBattle.challenger.name}}</h1>
-                   </div>
-                <div class="panel-body">
-                
-                <img ng-click="clash.vote1()" class="dogMainPic" src="{{clash.currentBattle.challenger.photos[0]}}">
-                
-                    
-
-              {{clash.currentBattle.challenger.votes}}
-                
-
+    <div class="panel panel-default">
+        <div class="panel panel-heading text-center">{{clash.currentBattle.category.name}}</div>
+        <div class="panel panel-body dogz">
+            <div class="row">
+            <br>
+                <div class="col-sm-5">
+                    <div class="panel panel-default thePanel">
+                        <div class="panel-body text-center">
+                            <div class="row">
+                                <img ui-sref="puppr.profile.dog({petId: clash.currentBattle.challenger.petId})" class="clashImageOne leftImg" src="{{clash.currentBattle.challenger.photos[0]}}">
+                                <div>
+                                    <p class="challengerName">{{clash.currentBattle.challenger.name}}</p>
+                                    <br>
+                                    <p class="voteNumber">{{clash.currentBattle.challenger.votes}}</p>
+                                    <button ng-click="clash.vote1()" class="btn btn-geckoboard btn-green voteBtn">vote</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-            </div>
-        </div>
-
-
-
-    
-        <div class="col-md-6 col-lg-6">
-        <label for="">Defender</label>
-            <div class="panel panel-default">
-                <div class="panel-heading"><h1>{{clash.currentBattle.defender.name}}</h1></div>
-                <div class="panel-body">
-                  <img ng-click="clash.vote2()" class="dogMainPic" src="{{clash.currentBattle.defender.photos[0]}}">
-
-                   {{clash.currentBattle.defender.votes}}
+                <div class="col-sm-2">
+                    <p class="vs text-center">vs</p>
+                </div>
+                <div class="col-sm-5">
+                    <div class="panel panel-default thePanel">
+                        <div class="panel-body text-center">
+                            <div class="row">
+                                <img ui-sref="puppr.profile.dog({petId: clash.currentBattle.defender.petId})" class="clashImageTwo rightImg" src="{{clash.currentBattle.defender.photos[0]}}">
+                                <div>
+                                    <p class="challengerName">{{clash.currentBattle.defender.name}}</p>
+                                    <br>
+                                    <p class="voteNumber">{{clash.currentBattle.defender.votes}}</p>
+                                    <button ng-click="clash.vote2()" class="btn btn-geckoboard btn-green voteBtn">vote</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            
         </div>
     </div>
 </div>

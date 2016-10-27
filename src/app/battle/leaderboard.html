@@ -1,31 +1,29 @@
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<table class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>Rank</th>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Votes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="pet in leaderboard.pets | orderBy:'-battleVote'| limitTo:10">
-      <th>{{$index + 1}}</th>
-      <td>:D</td>
-      <td>{{pet.name}}</td>
-      <td>{{pet.battleVote.length}}</td>
-    </tr>
-  </tbody>
-</table>
-
+<div id="fixMargin" class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="leaderBox">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Breed</th>
+                            <th>Gender</th>
+                            <th>Votes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="pet in leaderboard.pets | orderBy:'-battleVote'| limitTo:10">
+                            <td class="vertical">{{$index + 1}}</td>
+                            <th><a ui-sref="puppr.profile.dog({petId: pet.petId})"><img class="leaderDogs" ng-src="{{pet.photos[0].url}}"></a> {{pet.name}}</th>
+                            <td>{{pet.breed.name}}</td>
+                            <td>{{pet.gender}}</td>
+                            <td class="vertical">{{pet.battleVote.length}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

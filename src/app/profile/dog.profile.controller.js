@@ -10,6 +10,7 @@
     function DogController(petFactory, authFactory, $ngBootbox, $stateParams, $state) {
         var vm = this;
         vm.pet = {};
+        vm.currentOwnerId = authFactory.ownerId;
 
         activate();   
 

@@ -42,6 +42,25 @@
 
         activateTwo();
 
+        vm.defaultPic = function(photo) {
+            var index;
+            for (var z = 0; z < vm.owner.pets.length; z++) {
+                if (vm.owner.pets[z].petId === photo.petId) {
+                    index = vm.owner.pets[z].petPhotos.indexOf(photo);
+                    vm.owner.pets[z].petPhotos.splice(0, 0, vm.owner.pets[z].petPhotos.splice(index, 1)[0]);
+                }
+            }
+            petPhotoFactory.editPhoto(photo).then(
+                function(success) {
+                    console.log("success!");
+                },
+                function(error) {
+                    console.log("error!");
+                }
+            );
+
+        };
+
 
         vm.editPet = function(pet) {
             if (vm.name === "" || vm.name === null || vm.dogFood === "" || vm.dogFood === null || vm.toy === "" || vm.toy === null || vm.activity === "" || vm.activity === null) {
