@@ -1,34 +1,128 @@
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="row">
-    <div ng-repeat="battles in vote.battles" ng-if="vote.isBefore(battles.endDate)"  class="col-xs-3 col-md-3 col-lg-3" style="max-width: 250px;">
-
-        <div class="panel panel-heading">{{battles.category.name}}</div>
-        <a href="#" class="thumbnail">
-            <img   src="http://www.clipartkid.com/images/524/comic-explosion-clip-art-at-clker-com-vector-clip-art-online-tYCEYQ-clipart.png" alt="..." style="max-height: 250px;" ui-sref="puppr.battle.clash({battleId: battles.battleId})">
-        </a>
+<div id="fixMargin" class="container">
+    <div class="row">
+        <md-content>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Best Camouflaged">
+                    <md-content class="md-padding">
+                        <div ng-if="battles.category.name === 'Best Camouflaged'">
+                            <div>{{battles.category.name}}</div>
+                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="200px">
+                            </a>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Biggest">
+                    <md-content class="md-padding">
+                        <div ng-if="battles.category.name === 'Biggest'">
+                            <div>{{battles.category.name}}</div>
+                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="200px">
+                            </a>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Cutest">
+                    <md-content class="md-padding">
+                        <div ng-if="battles.category.name === 'Cutest'">
+                            <div>{{battles.category.name}}</div>
+                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="200px">
+                            </a>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Fluffiest">
+                    <md-content class="md-padding">
+                        <div ng-if="battles.category.name === 'Fluffiest'">
+                            <div>{{battles.category.name}}</div>
+                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="200px">
+                            </a>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Funniest">
+                    <md-content class="md-padding">
+                        <div ng-if="battles.category.name === 'Funniest'">
+                            <div>{{battles.category.name}}</div>
+                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="200px">
+                            </a>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Happiest">
+                    <md-content class="md-padding">
+                        <div ng-if="battles.category.name === 'Happiest'">
+                            <div>{{battles.category.name}}</div>
+                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="200px">
+                            </a>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Most Festive">
+                    <md-content class="md-padding">
+                        <div ng-if="battles.category.name === 'Most Festive'">
+                            <div>{{battles.category.name}}</div>
+                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="200px">
+                            </a>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Most Like Harambe">
+                    <md-content class="md-padding">
+                        <div ng-if="battles.category.name === 'Most Like Harambe'">
+                            <div>{{battles.category.name}}</div>
+                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="200px">
+                            </a>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Smallest">
+                    <md-content class="md-padding">
+                        <div ng-if="battles.category.name === 'Smallest'">
+                            <div>{{battles.category.name}}</div>
+                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="200px">
+                            </a>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Spookiest">
+                    <md-content class="md-padding">
+                        <div ng-if="battles.category.name === 'Spookiest'">
+                            <div>{{battles.category.name}}</div>
+                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="200px">
+                            </a>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Ugliest">
+                    <md-content class="md-padding">
+                        <div ng-if="battles.category.name === 'Ugliest'">
+                            <div>{{battles.category.name}}</div>
+                            <a ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+                                <img src="http://3.bp.blogspot.com/-SM79RcUTNQA/VEBN_4Al0xI/AAAAAAAAAe8/ExLucw8Enrk/s1600/balao-pow.png" width="200px">
+                            </a>
+                        </div>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
     </div>
-</div>
-
-
-<h1>Inactive</h1>
-
-<div class="row">
-    <div ng-repeat="battles in vote.battles | limitTo:1" ng-if="vote.isAfter(battles.endDate)"  class="col-xs-3 col-md-3 col-lg-3" style="max-width: 250px;">
-
-        <div class="panel panel-heading">{{battles.category.name}}</div>
-        <a href="#" class="thumbnail">
-            <img   src="http://www.clipartkid.com/images/524/comic-explosion-clip-art-at-clker-com-vector-clip-art-online-tYCEYQ-clipart.png" alt="..." style="max-height: 250px;" ui-sref="puppr.battle.clash({battleId: battles.battleId})">
-        </a>
+    <h1>Inactive</h1>
+    <div class="row">
+        <div ng-repeat="battles in vote.battles | limitTo:4" ng-if="vote.isAfter(battles.endDate)" class="col-xs-3 col-md-3 col-lg-3" style="max-width: 250px;">
+            <div class="panel panel-heading">{{battles.category.name}}</div>
+            <a href="#" class="thumbnail">
+                <img src="http://www.clipartkid.com/images/524/comic-explosion-clip-art-at-clker-com-vector-clip-art-online-tYCEYQ-clipart.png" alt="..." style="max-height: 250px;" ui-sref="puppr.battle.clash({battleId: battles.battleId})">
+            </a>
+        </div>
     </div>
 </div>
