@@ -1,18 +1,38 @@
 <br>
-<div class="container" id="fixMargin"></div>
-<ul>
-    <li class="btn btn-primary" ui-sref="puppr.profile.owner({ownerId: dog.pet.ownerId})">{{dog.pet.name}}</li>
-    <li>{{dog.pet.dateOfBirth | date:"MMMM d, y"}}</li>
-<!--     <li>{{dog.pet.dateOfBirth}}</li> -->
-    <li>{{dog.pet.dogFood}}</li>
-    <li>{{dog.pet.toy}}</li>
-    <li>{{dog.pet.activity}}</li>
-</ul>
-<div class="col-sm-3">
-    <div ng-if="dog.pet.ownerId != dog.currentOwnerId">
-        <button type="submit" class="btn btn-primary btn-block" ui-sref="puppr.battle.pets({challengePetId: dog.pet.petId})">Challenge</button>
+<div class="container" id="fixMargin">
+    <div class="col-sm-4">
+        <div class="dogProfileOne">
+            <br>
+            <span>
+            <img class="dogProfPic" ng-src="{{dog.pet.petPhotos[0].url}}">
+            <a ui-sref="puppr.profile.owner({ownerId: dog.pet.ownerId})"><img class="smallOwnerPic" ng-src="{{dog.pet.owner.photo}}"></a>
+            </span>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div ng-if="dog.pet.ownerId != dog.currentOwnerId">
+                        <button type="submit" class="btn btn-geckoboard btn-green btn-block" ui-sref="puppr.battle.pets({challengePetId: dog.pet.petId})">Challenge</button>
+                <br>
+                    </div>
+                    <div ng-if="dog.pet.ownerId === dog.currentOwnerId">
+                        <button type="submit" class="btn btn-geckoboard btn-grey btn-block">Challenge<md-tooltip md-visible="demo.showTooltip" md-direction="top">Oops! You can't challenge yourself!</md-tooltip></button><br>
+                
+                    </div>
+                </div>
+                
+            </div>
+        </div>
     </div>
-    <div ng-if="dog.pet.ownerId === dog.currentOwnerId">
-        
+    <div class="col-sm-8">
+        <div class="dogProfBone">
+            <img width="300" class="dogBoneImage" src="http://i.imgur.com/h2Alyfv.png">
+            <div class="dogProfText">{{dog.pet.name}}</div>
+            <div class="dogInfo">
+                <p><b>{{dog.pet.name}}</b> is a <b>{{dog.pet.gender | lowercase}}</b> <b>{{dog.pet.breed.name | lowercase}}</b> born on <b>{{dog.pet.dateOfBirth | date:"MMMM d, y"}}</b>. His favorite dog toy is <b>{{dog.pet.toy}}</b> and he loves munching on <b>{{dog.pet.dogFood}}</b>. But most of all, <b>{{dog.pet.name}}</b> absolutely adores <b>{{dog.pet.activity}}</b>.</p>
+            </div>
+        </div>
     </div>
 </div>

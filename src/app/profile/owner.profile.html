@@ -1,18 +1,25 @@
 <br>
-<br>
-<br>
-<div class="container" id="fixMargin"><label for="dog">Owner Name</label>
-{{owner.owners.firstName}}
-{{owner.owners.lastName}}
-{{owner.owners.biography}}</div>
-
-
-<ul ng-repeat="pets in owner.owners.pets">
-	<li class="btn btn-primary" ui-sref="puppr.profile.dog({petId: pets.petId})">Placeholder for image with link to {{pets.name}}s Profile</li>
-
-	
-</ul>
-
-
-
-
+<div class="container" id="fixMargin">
+    <div class="col-sm-5">
+        <div class="dogProfBone">
+            <div class="row">
+                <div class="col-sm-8">
+                    <span>
+            <img class="dogProfPic" ng-src="{{owner.owners.photo}}">
+            </span>
+                </div>
+                <div class="col-sm-4">
+                    <div ng-repeat="pet in owner.owners.pets" class="text-center">
+                        <a ui-sref="puppr.profile.dog({petId: pet.petId})"><img class="smallDogPic" ng-src="{{pet.petPhotos[0].url}}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-7">
+    	<div class="dogProfileOne">
+    	{{owner.owners.firstName}} {{owner.owners.biography}}
+    	</div>
+    </div>
+    
+</div>

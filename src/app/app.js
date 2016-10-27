@@ -84,7 +84,7 @@
                     templateUrl: 'app/profile/edit.profile.html'
                 })
                 .state('puppr.profile.owner', {
-                    url: '/owner?ownerId',
+                    url: '/owner',
                     controller: 'OwnerController as owner',
                     templateUrl: 'app/profile/owner.profile.html'
                 })

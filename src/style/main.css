@@ -42,8 +42,10 @@ header {
 }
 
 
+/* dialog trans*/
+
 md-dialog.md-transition-in {
-    background-color: pink;
+    background-color: white;
 }
 
 .carouselCaption {
@@ -260,6 +262,15 @@ body {
 
 .btn-purple:hover {
     background: #3c001e;
+    color: #fff;
+}
+
+.btn-grey {
+    background-color: #999999;
+}
+
+.btn-grey:hover {
+    background:     #4b4236;
     color: #fff;
 }
 
@@ -685,3 +696,83 @@ ul > li {
     cursor: pointer;
 }
 
+/* dog profile */
+
+.dogProfileOne {
+    text-align: center;
+    border-radius: 10px;
+    background-color:   #804a62;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
+}
+
+.dogProfPic {
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
+    object-fit: cover;
+    height: 270px;
+    width: 270px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.smallOwnerPic {
+    position: absolute;
+    top: 230px;
+    left: 250px;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    border: 5px solid #c92b1b;
+}
+
+.dogProfBone {
+    min-height: 230px;
+    padding: 20px;
+    text-align: right;
+    border-radius: 10px;
+    background-color: #e5623b;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
+}
+
+.dogBoneImage {
+    margin-top: -60px;
+    float: right;
+}
+
+.dogProfText {
+    display: block;
+    text-align: left;
+    width: 360px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px rgba(0,0,0, .8);
+    border-bottom: 5px solid #b74e2f;
+    margin-bottom: 20px;
+    margin-top: -18px;
+}
+
+.dogInfo {
+    font-size: 15px;
+    color: white;
+    text-align: left;
+}
+
+.miniTitle {
+    font-size: 20px;
+    border-bottom: 2px solid #b74e2f;
+}
+
+/* owner profile */
+
+.smallDogPic {
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, .3), -8px 8px 15px rgba(0, 0, 0, .3);
+    object-fit: cover;
+    height: 82px;
+    width: 82px;
+    margin-bottom: 11px;
+    border-radius: 100%;
+    border: 5px solid #c92b1b;
+}
